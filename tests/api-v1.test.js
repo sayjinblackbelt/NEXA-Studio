@@ -26,7 +26,7 @@ function request(method, path, body, headers = {}) {
   try {
     let response = await request('GET', '/health');
     assert.equal(response.status, 200);
-    assert.equal(response.body.phase, '4.10.2');
+    assert.equal(response.body.phase, '4.10.3-A');
     assert.equal(response.body.persistence, dataLayer.mode);
 
     response = await request('OPTIONS', '/api/v1/clients', undefined, { Origin: 'https://example.com' });
@@ -92,7 +92,7 @@ function request(method, path, body, headers = {}) {
     response = await request('GET', '/api/v1/clients/c-missing');
     assert.equal(response.status, 404);
 
-    console.log('PASS: API v1 phase 4.10.2 tests');
+    console.log('PASS: API v1 phase 4.10.3-A tests');
   } finally {
     await new Promise((resolve) => server.close(resolve));
   }
