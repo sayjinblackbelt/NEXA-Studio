@@ -6,13 +6,9 @@ const NEXA_LAB_API = (() => {
   const setEnabled = value => localStorage.setItem(KEY, value ? '1' : '0');
   const notice = (text, ok = false) => {
     let el = document.getElementById('api-status');
-    if (!el) {
-      el = document.createElement('div'); el.id = 'api-status'; el.className = 'note';
-      document.querySelector('#overview .lab-toolbar')?.after(el);
-    }
+    if (!el) { el = document.createElement('div'); el.id = 'api-status'; el.className = 'note'; document.querySelector('#overview .lab-toolbar')?.after(el); }
     el.textContent = text; el.style.borderLeftColor = ok ? 'var(--acid)' : '#7657ff';
   };
-  const localToApiProject = p => ({ id: p.id, clientId: p.client, name: p.name, stage: stageToApi[p.stage] || 'BRIEFING', health: 'ON_TRACK' });
   const apiToLocalProject = (p, previous = {}) => ({ ...previous, id:p.id, name:p.name, client:p.clientId, stage:stageFromApi[p.stage] || 'Briefing', status:previous.status || 'ACTIVE', type:previous.type || 'Projeto' });
 
   async function syncFromApi() {
@@ -21,8 +17,7 @@ const NEXA_LAB_API = (() => {
     const previousProjects = Object.fromEntries(db.projects.map(p => [p.id, p]));
     db.clients = clients;
     db.projects = (pr.data || []).map(p => apiToLocalProject(p, previousProjects[p.id]));
-    localStorage.setItem(STORE, JSON.stringify(db));
-    renderAll();
+    localStorage.setItem(STORE, JSON.stringify(db)); renderAll();
     notice(`API conectada · ${clients.length} clientes · ${db.projects.length} projetos`, true);
   }
 
@@ -51,19 +46,21 @@ const NEXA_LAB_API = (() => {
       const result = await NEXA_API.projects.create({ ...payload, stage:stageToApi[d.stage] || 'BRIEFING' });
       if (local) { const old = local.id; local.id = result.data.id; if (db.qa[old]) { db.qa[local.id] = db.qa[old]; delete db.qa[old]; } }
     }
-    const target = id ? local : db.projects.find(p => p.id === (local?.id));
-    if (target && stageToApi[d.stage] && target.stage !== d.stage) await transitionProject(target, d.stage);
+    const target = id ? local : (local || db.projects.find(p => p.id === id));
+    if (id && local && stageToApi[d.stage]) {
+      const remote = await NEXA_API.projects.get(id);
+      if (remote.data && remote.data.stage !== stageToApi[d.stage]) await transitionProject(local, d.stage, remote.data.stage);
+    }
     localStorage.setItem(STORE, JSON.stringify(db)); renderAll();
   }
 
-  async function transitionProject(project, nextLocalStage) {
+  async function transitionProject(project, nextLocalStage, remoteStage) {
     const result = await NEXA_API.projects.transition(project.id, stageToApi[nextLocalStage]);
     project.stage = stageFromApi[result.data.stage] || nextLocalStage;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const toolbar = document.querySelector('#overview .lab-toolbar');
-    if (!toolbar) return;
+    const toolbar = document.querySelector('#overview .lab-toolbar'); if (!toolbar) return;
     const btn = document.createElement('button'); btn.id='api-connect'; btn.className='button button-line'; btn.textContent=enabled()?'Recarregar API':'Conectar API'; toolbar.appendChild(btn);
     btn.addEventListener('click', connect);
     if (enabled()) connect(); else notice('Modo local · API não conectada. Use “Conectar API” para sincronizar clientes e projetos.');
@@ -80,7 +77,7 @@ const NEXA_LAB_API = (() => {
       if (!enabled() || !e.target.matches('[data-stage]')) return;
       const p = db.projects.find(x => x.id === e.target.dataset.stage); if (!p) return;
       const requested = e.target.value;
-      try { await transitionProject(p, requested); localStorage.setItem(STORE, JSON.stringify(db)); renderAll(); notice(`Workflow sincronizado · ${p.name} → ${p.stage}`, true); }
+      try { const remote = await NEXA_API.projects.get(p.id); if (remote.data.stage === stageToApi[requested]) return; await transitionProject(p, requested, remote.data.stage); localStorage.setItem(STORE, JSON.stringify(db)); renderAll(); notice(`Workflow sincronizado · ${p.name} → ${p.stage}`, true); }
       catch (error) { notice(`Transição recusada pela API: ${error.message}`); renderAll(); }
     });
   });
