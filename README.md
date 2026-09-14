@@ -6,192 +6,101 @@
 
 ---
 
-## Sobre a NEXA Studio
+## Sobre
 
-A **NEXA Studio** é uma agência independente de design criada por **Filipe G. Morais**, com foco em transformar ideias, projetos e negócios em soluções visuais profissionais.
+A **NEXA Studio** é um estúdio multidisciplinar que cruza **design, estratégia, tecnologia e comunicação visual** para transformar ideias, projetos e negócios em soluções visuais profissionais.
 
-O estúdio combina **design estratégico, comunicação visual, tecnologia e criatividade** para desenvolver marcas e materiais que funcionem tanto esteticamente quanto na prática.
-
-### Posicionamento
-
-**Design com propósito, estratégia e execução.**
-
-A NEXA não pretende atuar apenas como uma produtora de peças gráficas. O objetivo é construir soluções de comunicação coerentes, funcionais e escaláveis, desde a estratégia até a entrega final.
-
----
+**Manifesto:** Não criamos apenas peças. Construímos sistemas de comunicação.
 
 ## Serviços
 
-### Branding
-- Estratégia de marca
-- Naming e posicionamento
-- Identidade visual
-- Logotipo e sistema de marca
-- Manual de identidade visual
-- Diretrizes de aplicação
+- Branding
+- Design Gráfico
+- Design Digital
+- Comunicação Visual
+- Projetos Especiais
 
-### Design Gráfico
-- Materiais institucionais
-- Apresentações
-- Editorial
-- Social media
-- Campanhas visuais
-- Materiais para impressão
-- Infográficos e peças informativas
+## Processo
 
-### Design Digital
-- Interfaces digitais
-- Landing pages
-- Websites
-- Design de sistemas e produtos digitais
-- Protótipos e wireframes
-- Materiais para plataformas digitais
+**Pensar → Criar → Construir → Comunicar**
 
-### Comunicação Visual
-- Campanhas
-- Eventos
-- Materiais educacionais
-- Sinalização
-- Conteúdo visual para projetos sociais e institucionais
+A operação interna também possui fluxo estruturado de briefing, diagnóstico, proposta, produção, QA, entrega e conclusão.
 
-### Produção Criativa
-- Direção de arte
-- Tratamento e composição de imagens
-- Ilustração e elementos gráficos
-- Motion e conteúdo audiovisual
-- Mockups e apresentações de projetos
-
----
-
-## Processo NEXA
-
-**01 — Discovery** — entendimento do negócio, público, contexto, objetivos e problema.
-
-**02 — Strategy** — definição de posicionamento, direção criativa e critérios de sucesso.
-
-**03 — Concept** — exploração visual, referências, conceitos e alternativas.
-
-**04 — Design** — desenvolvimento da solução visual e dos seus sistemas de aplicação.
-
-**05 — Refinement** — apresentação, análise, ajustes e validação.
-
-**06 — Delivery** — organização dos arquivos, documentação e entrega dos materiais finais.
-
----
-
-## Estrutura do projeto
+## Estrutura
 
 ```text
 NEXA-Studio/
-├── 01_brand/             # Identidade e posicionamento da NEXA
-├── 02_services/          # Serviços e ofertas
-├── 03_clients/           # Projetos e informações de clientes
-├── 04_projects/          # Projetos em desenvolvimento
-├── 05_portfolio/         # Cases e trabalhos publicados
-├── 06_templates/         # Templates e documentos reutilizáveis
-├── 07_assets/            # Recursos gráficos, imagens e referências
-├── 08_documentation/     # Processos, padrões e documentação
-├── 09_proposals/         # Propostas comerciais e escopos
-├── 10_archive/           # Materiais arquivados
-└── README.md
+├── 01_brand/
+├── 02_services/
+├── 03_clients/
+├── 04_projects/
+├── 05_portfolio/
+├── 06_templates/
+├── 07_assets/
+├── 08_documentation/
+├── 09_proposals/
+├── 10_archive/
+├── backend/
+├── js/
+├── css/
+├── tests/
+├── index.html
+└── studio.html
 ```
 
-A numeração cria uma hierarquia clara e facilita a expansão da agência sem transformar o repositório em um depósito de arquivos.
+## Plataforma NEXA
 
----
+O repositório já contém:
 
-## Estrutura dos projetos
+- site público protótipo em GitHub Pages;
+- **NEXA Lab** para operação interna;
+- modelo de domínio e contrato de dados v1;
+- PostgreSQL schema v1;
+- API v1 em Node.js;
+- validação e CI automatizados;
+- PostgreSQL repository;
+- integração preparada para Supabase;
+- migration adapter v1;
+- documentação de governança, QA, segurança e manutenção.
 
-```text
-04_projects/
-└── nome-do-projeto/
-    ├── 01_briefing/
-    ├── 02_research/
-    ├── 03_strategy/
-    ├── 04_concept/
-    ├── 05_design/
-    ├── 06_presentations/
-    ├── 07_final/
-    └── README.md
-```
+## Status atual — 14/09/2026
 
-Cada projeto deve registrar não apenas o resultado final, mas também o processo de construção.
+**4.10.3-A — HOSTING PREPARATION / IN VALIDATION**
 
----
+Gates anteriores:
 
-## Portfólio como case
+- 4.10.1 — PostgreSQL Repository: **PASS**
+- 4.10.2 — API → PostgreSQL Wiring: **PASS**
 
-Os projetos apresentados devem ser organizados como **cases**, e não apenas como galerias de imagens.
+O Supabase **NEXA-Studio** está no plano Free, com schema v1 aplicado. A API ainda não está hospedada publicamente.
 
-Cada case deve responder:
+### Próximos passos
 
-1. Qual era o problema?
-2. Qual era o contexto?
-3. Qual foi a estratégia?
-4. Qual solução foi desenvolvida?
-5. Quais foram as entregas?
-6. Qual foi o resultado ou impacto?
-7. O que foi aprendido?
+1. **4.10.3-B** — Deploy do Node.js API no Render Free;
+2. **4.10.3-C** — conectar Render ao PostgreSQL/Supabase;
+3. **4.10.3-D** — integrar GitHub Pages/NEXA Lab à API pública;
+4. **4.10.4** — validar persistência após reinicialização e fluxo integrado;
+5. **4.11** — Auth + Supabase RLS;
+6. **4.12** — segurança, observabilidade e hardening;
+7. **4.13** — migração controlada de dados;
+8. **4.14** — beta interno;
+9. **E8** — preparação comercial e lançamento final.
 
----
+O roadmap detalhado está em [`08_documentation/external/current-status-and-roadmap.md`](08_documentation/external/current-status-and-roadmap.md).
 
-## Direção de marca
+## Regra financeira
 
-A NEXA Studio deve transmitir:
+**Custo alvo atual: US$0.**
 
-- **Profissionalismo** sem excesso de formalidade;
-- **Criatividade** com propósito;
-- **Tecnologia** aplicada ao design;
-- **Clareza** na comunicação;
-- **Consistência** visual e estratégica;
-- **Proximidade** no relacionamento com clientes.
+Nenhum upgrade, recurso pago ou cartão deve ser adicionado sem decisão explícita.
 
-A identidade deve evitar a aparência de um simples portfólio pessoal e evoluir para uma **marca de estúdio/agência independente**.
+## Status público
 
----
+**INTERNAL PROTOTYPE — NOT READY FOR PUBLIC COMMERCIAL LAUNCH**
 
-## Roadmap
-
-### Fase 01 — Fundação
-- [x] Criar repositório NEXA Studio
-- [x] Definir posicionamento como agência/estúdio de design
-- [x] Estruturar diretórios principais
-- [ ] Criar identidade visual da NEXA
-- [ ] Criar brand guidelines
-
-### Fase 02 — Operação
-- [ ] Criar briefing padrão
-- [ ] Criar proposta comercial padrão
-- [ ] Criar contrato/escopo padrão
-- [ ] Criar estrutura de case
-- [ ] Criar processo de aprovação
-- [ ] Definir padrão de versionamento e entrega
-
-### Fase 03 — Portfólio
-- [ ] Selecionar projetos estratégicos
-- [ ] Transformar projetos em cases
-- [ ] Criar apresentação institucional
-- [ ] Criar presença digital da NEXA
-
-### Fase 04 — Escala
-- [ ] Criar biblioteca de templates
-- [ ] Criar biblioteca de componentes visuais
-- [ ] Estruturar parceiros/freelancers
-- [ ] Criar indicadores comerciais e operacionais
-
----
+Os cases atuais são conceituais e o contato público ainda é demonstrativo. O lançamento comercial depende de casos reais aprovados, canal comercial real e conclusão dos gates técnicos.
 
 ## Autor
 
 **Filipe G. Morais**  
 Designer · Educador · Tecnologia & Comunicação Visual
-
-GitHub: https://github.com/sayjinblackbelt
-
----
-
-## Status
-
-**Em estruturação — Agência de Design**
-
-A NEXA Studio está sendo desenvolvida como um projeto profissional de longo prazo, com evolução gradual da identidade, portfólio, processos, operação e presença digital.
