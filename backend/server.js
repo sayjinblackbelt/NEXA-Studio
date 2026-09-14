@@ -5,6 +5,7 @@ const { DomainError, ValidationError } = require('./domain/errors');
 const { STAGES, HEALTH } = require('./domain/project-rules');
 
 const PORT = Number.parseInt(process.env.PORT || '3000', 10);
+const HOST = process.env.HOST || '0.0.0.0';
 const MAX_BODY_BYTES = 1_000_000;
 const CORS_ORIGIN = process.env.CORS_ORIGIN || '';
 const dataLayer = createDataLayer();
@@ -102,7 +103,7 @@ async function handle(req, res) {
   const hasBody = ['POST', 'PATCH'].includes(req.method);
 
   if (req.method === 'GET' && pathname === '/health') {
-    return json(res, 200, { status: 'ok', service: 'nexa-api', phase: '4.10.2', persistence: dataLayer.mode });
+    return json(res, 200, { status: 'ok', service: 'nexa-api', phase: '4.10.3-A', persistence: dataLayer.mode });
   }
   if (!pathname.startsWith('/api/v1/')) return json(res, 404, { error: { code: 'NOT_FOUND', message: 'Route not found' } });
 
@@ -175,6 +176,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-if (require.main === module) server.listen(PORT, () => console.log(`NEXA API listening on port ${PORT} (${dataLayer.mode})`));
+if (require.main === module) server.listen(PORT, HOST, () => console.log(`NEXA API listening on ${HOST}:${PORT} (${dataLayer.mode})`));
 
 module.exports = { server, clients, projects, projectService, handle, dataLayer };
