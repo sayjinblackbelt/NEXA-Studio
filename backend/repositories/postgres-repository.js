@@ -6,6 +6,19 @@ function assertUuid(id) {
   }
 }
 
+function mapRow(row, table) {
+  if (!row) return row;
+  if (table === 'clients') return { id: row.id, name: row.name };
+  return {
+    id: row.id,
+    clientId: row.client_id,
+    name: row.name,
+    type: row.type,
+    stage: row.stage,
+    health: row.health,
+  };
+}
+
 class PostgresRepository {
   constructor({ pool, table }) {
     if (!pool || !table) throw new ValidationError('PostgresRepository requires pool and table');
@@ -16,14 +29,14 @@ class PostgresRepository {
 
   async list() {
     const { rows } = await this.pool.query(`select * from ${this.table} order by created_at asc`);
-    return rows;
+    return rows.map((row) => mapRow(row, this.table));
   }
 
   async get(id) {
     assertUuid(id);
     const { rows } = await this.pool.query(`select * from ${this.table} where id = $1`, [id]);
     if (!rows[0]) throw new NotFoundError(this.table === 'clients' ? 'Client' : 'Project', id);
-    return rows[0];
+    return mapRow(rows[0], this.table);
   }
 
   async create(record) {
@@ -34,14 +47,14 @@ class PostgresRepository {
           'insert into clients (id, name) values ($1, $2) returning *',
           [record.id, record.name],
         );
-        return rows[0];
+        return mapRow(rows[0], this.table);
       }
       const { rows } = await this.pool.query(
         `insert into projects (id, client_id, name, type, stage, health)
          values ($1, $2, $3, $4, $5, $6) returning *`,
         [record.id, record.clientId, record.name, record.type || 'GENERAL', record.stage || 'BRIEFING', record.health || 'ON_TRACK'],
       );
-      return rows[0];
+      return mapRow(rows[0], this.table);
     } catch (error) {
       if (error.code === '23505') throw new ConflictError('Resource id already exists', { id: record.id });
       if (error.code === '23503') throw new NotFoundError('Related resource', record.clientId);
@@ -66,7 +79,7 @@ class PostgresRepository {
         `update ${this.table} set ${assignments.join(', ')}, updated_at = now() where id = $${values.length} returning *`,
         values,
       );
-      return rows[0] || current;
+      return mapRow(rows[0], this.table) || current;
     } catch (error) {
       if (error.code === '23503') throw new NotFoundError('Related resource', patch.clientId);
       throw error;
