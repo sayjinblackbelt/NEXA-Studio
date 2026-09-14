@@ -32,7 +32,7 @@ function mockPool() {
   await repo.delete(id);
   assert.ok(pool.calls.length >= 4);
 
-  assert.throws(() => repo.get('c-test'), /UUID ids/);
+  await assert.rejects(() => repo.get('c-test'), /UUID ids/);
 
   const projectRepo = new PostgresRepository({ pool, table: 'projects' });
   const project = await projectRepo.create({ id, clientId: id, name: 'Project DB', stage: 'BRIEFING', health: 'ON_TRACK' });
