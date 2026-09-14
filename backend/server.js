@@ -86,16 +86,16 @@ async function handle(req, res) {
     return json(res, 201, { data: projectService.create(project) });
   }
 
+  const transitionMatch = pathname.match(/^\/api\/v1\/projects\/([^/]+)\/transition$/);
+  if (req.method === 'POST' && transitionMatch) {
+    const id = decodeURIComponent(transitionMatch[1]);
+    return json(res, 200, { data: projectService.transition(id, body.nextStage) });
+  }
+
   const projectId = resourceId(pathname, 'projects');
   if (projectId) {
     if (req.method === 'GET') return json(res, 200, { data: projectService.get(projectId) });
     if (req.method === 'PATCH') return json(res, 200, { data: projectService.update(projectId, body) });
-
-    const transitionMatch = pathname.match(/^\/api\/v1\/projects\/([^/]+)\/transition$/);
-    if (req.method === 'POST' && transitionMatch) {
-      const id = decodeURIComponent(transitionMatch[1]);
-      return json(res, 200, { data: projectService.transition(id, body.nextStage) });
-    }
   }
 
   return json(res, 404, { error: { code: 'NOT_FOUND', message: 'Route not found' } });
@@ -112,6 +112,8 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => console.log(`NEXA API listening on port ${PORT}`));
+if (require.main === module) {
+  server.listen(PORT, () => console.log(`NEXA API listening on port ${PORT}`));
+}
 
 module.exports = { server, clients, projects, projectService, handle };
