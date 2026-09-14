@@ -9,9 +9,16 @@
   const categories = () => ['Todos', ...new Set(state.models.map(model => model.category))];
   const findModel = id => state.models.find(model => model.id === id);
 
+  function visualFor(model) {
+    const letters = escapeHtml((model.name || 'NEXA').replace(/[^A-Za-zÀ-ÿ]/g, '').slice(0, 2).toUpperCase() || 'NX');
+    const category = escapeHtml(model.category || 'NEXA');
+    return `<div class="model-visual" aria-hidden="true"><span class="model-visual-grid"></span><span class="model-visual-orbit"></span><strong>${letters}</strong><small>${category}</small></div>`;
+  }
+
   function renderFilters() {
     filters.innerHTML = categories().map(category => `<button class="filter ${category === state.category ? 'active' : ''}" data-category="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join('');
   }
+
   function visibleModels() {
     const query = state.search.toLowerCase();
     return state.models.filter(model => {
@@ -20,20 +27,25 @@
       return categoryOk && text.includes(query);
     }).sort((a,b) => state.sort === 'name' ? a.name.localeCompare(b.name) : state.sort === 'category' ? a.category.localeCompare(b.category) : Number(b.featured) - Number(a.featured) || a.name.localeCompare(b.name));
   }
+
   function render() {
     const models = visibleModels();
-    grid.innerHTML = models.length ? models.map(model => `<article class="model-card ${model.featured ? 'is-featured' : ''}"><div><div class="model-top"><span class="model-category">${escapeHtml(model.category)}</span><span>${model.featured ? '★' : '—'}</span></div><h2>${escapeHtml(model.name)}</h2><p>${escapeHtml(model.description)}</p><div class="model-tags">${(model.tags || []).map(tag => `<span class="model-tag">${escapeHtml(tag)}</span>`).join('')}</div></div><div class="model-actions"><button data-view="${escapeHtml(model.id)}">Visualizar</button><button class="secondary" data-use="${escapeHtml(model.id)}">Usar modelo</button></div></article>`).join('') : '<div class="empty-models">Nenhum modelo encontrado.</div>';
+    grid.innerHTML = models.length ? models.map(model => `<article class="model-card ${model.featured ? 'is-featured' : ''}"><div>${visualFor(model)}<div class="model-top"><span class="model-category">${escapeHtml(model.category)}</span><span>${model.featured ? '★' : '—'}</span></div><h2>${escapeHtml(model.name)}</h2><p>${escapeHtml(model.description)}</p><div class="model-tags">${(model.tags || []).map(tag => `<span class="model-tag">${escapeHtml(tag)}</span>`).join('')}</div></div><div class="model-actions"><button data-view="${escapeHtml(model.id)}">Visualizar</button><button class="secondary" data-use="${escapeHtml(model.id)}">Usar modelo</button></div></article>`).join('') : '<div class="empty-models">Nenhum modelo encontrado.</div>';
   }
+
   function openModal(model) {
-    modalRoot.innerHTML = `<div class="modal-backdrop" role="dialog" aria-modal="true"><div class="modal"><div class="modal-head"><div><p class="kicker dark">${escapeHtml(model.category)}</p><h2>${escapeHtml(model.name)}</h2></div><button class="modal-close" aria-label="Fechar">×</button></div><p>${escapeHtml(model.description)}</p><pre>${escapeHtml(model.content)}</pre><div class="model-actions"><button data-copy="${escapeHtml(model.id)}">Copiar modelo</button><button class="secondary" data-use="${escapeHtml(model.id)}">Usar modelo</button></div></div></div>`;
+    modalRoot.innerHTML = `<div class="modal-backdrop" role="dialog" aria-modal="true"><div class="modal"><div class="modal-head"><div>${visualFor(model)}<p class="kicker dark">${escapeHtml(model.category)}</p><h2>${escapeHtml(model.name)}</h2></div><button class="modal-close" aria-label="Fechar">×</button></div><p>${escapeHtml(model.description)}</p><pre>${escapeHtml(model.content)}</pre><div class="model-actions"><button data-copy="${escapeHtml(model.id)}">Copiar modelo</button><button class="secondary" data-use="${escapeHtml(model.id)}">Usar modelo</button></div></div></div>`;
   }
+
   function useModel(model) {
     try { localStorage.setItem('nexa-selected-model', JSON.stringify({ source:'nexa-model-library', modelId:model.id, name:model.name, category:model.category, content:model.content, selectedAt:new Date().toISOString() })); } catch (_) {}
-    window.location.href = `studio.html#tools?model=${encodeURIComponent(model.id)}`;
+    window.location.href = 'studio.html#tools';
   }
+
   async function copyModel(model) {
     try { await navigator.clipboard.writeText(model.content); } catch (_) { window.prompt('Copie o conteúdo do modelo:', model.content); }
   }
+
   document.addEventListener('click', event => {
     const filter = event.target.closest('[data-category]'); if (filter) { state.category = filter.dataset.category; renderFilters(); render(); return; }
     const view = event.target.closest('[data-view]'); if (view) { const model = findModel(view.dataset.view); if (model) openModal(model); return; }
@@ -43,5 +55,27 @@
   });
   search.addEventListener('input', event => { state.search = event.target.value; render(); });
   sort.addEventListener('change', event => { state.sort = event.target.value; render(); });
-  fetch('data/modelos.json', { cache:'no-store' }).then(response => { if (!response.ok) throw new Error('model data unavailable'); return response.json(); }).then(models => { state.models = Array.isArray(models) ? models : []; renderFilters(); render(); }).catch(() => { grid.innerHTML = '<div class="empty-models">Não foi possível carregar a biblioteca de modelos.</div>'; });
+
+  async function loadModels() {
+    const sources = [new URL('./data/modelos.json', window.location.href).href, 'data/modelos.json'];
+    for (const source of sources) {
+      try {
+        const response = await fetch(source, { cache:'no-store', headers:{Accept:'application/json'} });
+        if (!response.ok) continue;
+        const models = await response.json();
+        if (Array.isArray(models) && models.length) return models;
+      } catch (_) {}
+    }
+    return [];
+  }
+
+  loadModels().then(models => {
+    state.models = models;
+    if (!state.models.length) {
+      grid.innerHTML = '<div class="empty-models"><strong>Biblioteca indisponível.</strong><br>Verifique a conexão e recarregue a página.</div>';
+      return;
+    }
+    renderFilters();
+    render();
+  });
 })();
