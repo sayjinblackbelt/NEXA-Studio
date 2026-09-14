@@ -34,6 +34,7 @@ jobs:
           node --check backend/domain/errors.js
           node --check backend/domain/project-rules.js
           node --check backend/repositories/memory-repository.js
+          node --check backend/repositories/postgres-repository.js
           node --check backend/services/project-service.js
           node --check js/api-client.js
           node --check js/lab-api-sync.js
@@ -45,3 +46,5 @@ jobs:
         run: node tests/api-client.test.js
       - name: Migration tests
         run: node tests/migration-v1.test.js
+      - name: PostgreSQL repository tests
+        run: node tests/postgres-repository.test.js
