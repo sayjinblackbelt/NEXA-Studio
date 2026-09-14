@@ -54,3 +54,5 @@ jobs:
         run: node tests/migration-v1.test.js
       - name: PostgreSQL repository tests
         run: node tests/postgres-repository.test.js
+      - name: Database wiring tests
+        run: node tests/database.test.js
