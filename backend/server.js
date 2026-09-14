@@ -7,6 +7,7 @@ const { STAGES, HEALTH } = require('./domain/project-rules');
 
 const PORT = Number.parseInt(process.env.PORT || '3000', 10);
 const MAX_BODY_BYTES = 1_000_000;
+const CORS_ORIGIN = process.env.CORS_ORIGIN || '';
 const clients = new MemoryRepository();
 const projects = new MemoryRepository();
 const projectService = new ProjectService(projects, clients);
@@ -15,6 +16,18 @@ const CLIENT_CREATE_FIELDS = new Set(['id', 'name']);
 const CLIENT_PATCH_FIELDS = new Set(['name']);
 const PROJECT_CREATE_FIELDS = new Set(['id', 'clientId', 'name', 'stage', 'health']);
 const PROJECT_PATCH_FIELDS = new Set(['clientId', 'name', 'stage', 'health']);
+
+function applyCors(req, res) {
+  const origin = req.headers.origin;
+  if (!origin || !CORS_ORIGIN) return;
+  const allowed = CORS_ORIGIN.split(',').map((value) => value.trim()).filter(Boolean);
+  if (allowed.includes('*') || allowed.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept');
+  }
+}
 
 function json(res, statusCode, payload) {
   const body = JSON.stringify(payload);
@@ -34,9 +47,7 @@ function assertPlainObject(body) {
 
 function assertAllowedFields(body, allowed) {
   const unknown = Object.keys(body).filter((key) => !allowed.has(key));
-  if (unknown.length) {
-    throw new ValidationError('Unknown request field(s)', { fields: unknown });
-  }
+  if (unknown.length) throw new ValidationError('Unknown request field(s)', { fields: unknown });
 }
 
 function parseBody(req) {
@@ -81,12 +92,24 @@ function requireJsonContentType(req) {
 }
 
 async function handle(req, res) {
+  applyCors(req, res);
   const url = new URL(req.url, 'http://localhost');
   const { pathname } = url;
+
+  if (req.method === 'OPTIONS' && pathname.startsWith('/api/v1/')) {
+    if (!CORS_ORIGIN || !req.headers.origin) return json(res, 204, null);
+    const allowed = CORS_ORIGIN.split(',').map((value) => value.trim()).filter(Boolean);
+    if (allowed.includes('*') || allowed.includes(req.headers.origin)) {
+      res.writeHead(204);
+      return res.end();
+    }
+    return json(res, 403, { error: { code: 'CORS_FORBIDDEN', message: 'Origin is not allowed' } });
+  }
+
   const hasBody = ['POST', 'PATCH'].includes(req.method);
 
   if (req.method === 'GET' && pathname === '/health') {
-    return json(res, 200, { status: 'ok', service: 'nexa-api', phase: '4.5' });
+    return json(res, 200, { status: 'ok', service: 'nexa-api', phase: '4.9' });
   }
 
   if (!pathname.startsWith('/api/v1/')) {
@@ -96,17 +119,11 @@ async function handle(req, res) {
   if (hasBody) requireJsonContentType(req);
   const body = hasBody ? await parseBody(req) : {};
 
-  if (req.method === 'GET' && pathname === '/api/v1/clients') {
-    return json(res, 200, { data: clients.list() });
-  }
+  if (req.method === 'GET' && pathname === '/api/v1/clients') return json(res, 200, { data: clients.list() });
   if (req.method === 'POST' && pathname === '/api/v1/clients') {
     assertAllowedFields(body, CLIENT_CREATE_FIELDS);
-    if (!body.name || typeof body.name !== 'string' || !body.name.trim()) {
-      throw new ValidationError('Client name is required');
-    }
-    if (body.id !== undefined && (typeof body.id !== 'string' || !body.id.trim())) {
-      throw new ValidationError('Client id must be a non-empty string');
-    }
+    if (!body.name || typeof body.name !== 'string' || !body.name.trim()) throw new ValidationError('Client name is required');
+    if (body.id !== undefined && (typeof body.id !== 'string' || !body.id.trim())) throw new ValidationError('Client id must be a non-empty string');
     const client = clients.create({ id: body.id || randomUUID(), name: body.name.trim() });
     return json(res, 201, { data: client });
   }
@@ -116,30 +133,18 @@ async function handle(req, res) {
     if (req.method === 'GET') return json(res, 200, { data: clients.get(clientId) });
     if (req.method === 'PATCH') {
       assertAllowedFields(body, CLIENT_PATCH_FIELDS);
-      if (body.name !== undefined && (typeof body.name !== 'string' || !body.name.trim())) {
-        throw new ValidationError('Client name must be a non-empty string');
-      }
+      if (body.name !== undefined && (typeof body.name !== 'string' || !body.name.trim())) throw new ValidationError('Client name must be a non-empty string');
       if (Object.keys(body).length === 0) throw new ValidationError('At least one field is required');
       if (body.name !== undefined) body.name = body.name.trim();
       return json(res, 200, { data: clients.update(clientId, body) });
     }
   }
 
-  if (req.method === 'GET' && pathname === '/api/v1/projects') {
-    return json(res, 200, { data: projectService.list() });
-  }
+  if (req.method === 'GET' && pathname === '/api/v1/projects') return json(res, 200, { data: projectService.list() });
   if (req.method === 'POST' && pathname === '/api/v1/projects') {
     assertAllowedFields(body, PROJECT_CREATE_FIELDS);
-    if (body.id !== undefined && (typeof body.id !== 'string' || !body.id.trim())) {
-      throw new ValidationError('Project id must be a non-empty string');
-    }
-    const project = {
-      id: body.id || randomUUID(),
-      clientId: body.clientId,
-      name: body.name,
-      stage: body.stage || 'BRIEFING',
-      health: body.health || 'ON_TRACK',
-    };
+    if (body.id !== undefined && (typeof body.id !== 'string' || !body.id.trim())) throw new ValidationError('Project id must be a non-empty string');
+    const project = { id: body.id || randomUUID(), clientId: body.clientId, name: body.name, stage: body.stage || 'BRIEFING', health: body.health || 'ON_TRACK' };
     return json(res, 201, { data: projectService.create(project) });
   }
 
@@ -156,18 +161,10 @@ async function handle(req, res) {
     if (req.method === 'PATCH') {
       assertAllowedFields(body, PROJECT_PATCH_FIELDS);
       if (Object.keys(body).length === 0) throw new ValidationError('At least one field is required');
-      if (body.name !== undefined && (typeof body.name !== 'string' || !body.name.trim())) {
-        throw new ValidationError('Project name must be a non-empty string');
-      }
-      if (body.clientId !== undefined && (typeof body.clientId !== 'string' || !body.clientId.trim())) {
-        throw new ValidationError('Project clientId must be a non-empty string');
-      }
-      if (body.stage !== undefined && !STAGES.includes(body.stage)) {
-        throw new ValidationError('Invalid project stage', { stage: body.stage });
-      }
-      if (body.health !== undefined && !HEALTH.includes(body.health)) {
-        throw new ValidationError('Invalid project health', { health: body.health });
-      }
+      if (body.name !== undefined && (typeof body.name !== 'string' || !body.name.trim())) throw new ValidationError('Project name must be a non-empty string');
+      if (body.clientId !== undefined && (typeof body.clientId !== 'string' || !body.clientId.trim())) throw new ValidationError('Project clientId must be a non-empty string');
+      if (body.stage !== undefined && !STAGES.includes(body.stage)) throw new ValidationError('Invalid project stage', { stage: body.stage });
+      if (body.health !== undefined && !HEALTH.includes(body.health)) throw new ValidationError('Invalid project health', { health: body.health });
       if (body.name !== undefined) body.name = body.name.trim();
       if (body.clientId !== undefined) body.clientId = body.clientId.trim();
       return json(res, 200, { data: projectService.update(projectId, body) });
@@ -188,8 +185,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-if (require.main === module) {
-  server.listen(PORT, () => console.log(`NEXA API listening on port ${PORT}`));
-}
+if (require.main === module) server.listen(PORT, () => console.log(`NEXA API listening on port ${PORT}`));
 
 module.exports = { server, clients, projects, projectService, handle };
