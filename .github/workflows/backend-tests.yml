@@ -6,11 +6,15 @@ on:
       - 'backend/**'
       - 'tests/**'
       - '.github/workflows/backend-tests.yml'
+      - 'js/api-client.js'
+      - 'studio.html'
   pull_request:
     paths:
       - 'backend/**'
       - 'tests/**'
       - '.github/workflows/backend-tests.yml'
+      - 'js/api-client.js'
+      - 'studio.html'
 
 jobs:
   test:
@@ -29,9 +33,12 @@ jobs:
           node --check backend/domain/project-rules.js
           node --check backend/repositories/memory-repository.js
           node --check backend/services/project-service.js
+          node --check js/api-client.js
       - name: Backend architecture tests
         run: node tests/backend-architecture.test.js
       - name: API v1 tests
         run: node tests/api-v1.test.js
+      - name: API client tests
+        run: node tests/api-client.test.js
       - name: Migration tests
         run: node tests/migration-v1.test.js
