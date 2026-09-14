@@ -4,25 +4,23 @@ Phase 4 execution baseline for the future production API.
 
 ## Current status
 
-**STAGING SKELETON — no database or authentication configured yet.**
+**STAGING DATABASE READY — PostgreSQL adapter implemented; authentication/RLS and hosted API deployment are still pending.**
 
-This directory establishes a small, dependency-free Node.js runtime boundary so the API layer can be implemented and tested before connecting PostgreSQL/Supabase.
+The runtime supports two modes:
 
-## Scope of this step
+- `MemoryRepository` when `DATABASE_URL` is absent (local fallback/rollback);
+- `PostgresRepository` when `DATABASE_URL` is configured (staging persistence).
 
-- deterministic environment contract;
-- HTTP health endpoint;
-- explicit separation from the GitHub Pages frontend;
-- no secrets committed to the repository;
-- no production claims.
+The PostgreSQL schema v1 has been applied to the NEXA-Studio Supabase Free project. No production credentials are committed to the repository.
 
 ## Run
 
 ```bash
+npm install
 node backend/server.js
 ```
 
-The server listens on `PORT` (default `3000`).
+For PostgreSQL/Supabase staging, configure `DATABASE_URL` and `CORS_ORIGIN` from environment variables. See `backend/.env.example`.
 
 Health check:
 
@@ -30,17 +28,13 @@ Health check:
 GET /health
 ```
 
-Expected response:
+The response reports the active persistence mode (`memory` or `postgres`).
 
-```json
-{"status":"ok","service":"nexa-api","phase":"4.1"}
-```
+## Current gates
 
-## Next gates
-
-1. provision staging PostgreSQL/Supabase;
-2. execute `08_documentation/architecture/schema-v1.sql` against staging;
-3. configure authentication and RLS;
-4. implement repository/service boundaries;
-5. expose the first authenticated Client → Project API;
-6. integration-test authorization and persistence before migration.
+1. PostgreSQL/Supabase staging schema — complete;
+2. repository/service persistence adapter — complete;
+3. authenticated API deployment — pending;
+4. authentication and RLS — pending;
+5. integration-test authorization and persistence — pending;
+6. controlled migration of Lab data — pending.
