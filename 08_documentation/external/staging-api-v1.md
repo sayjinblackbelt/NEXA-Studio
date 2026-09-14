@@ -2,29 +2,33 @@
 
 ## Purpose
 
-Define the first deployable staging contract between the GitHub Pages Lab and the NEXA API without creating a production database or Supabase project yet.
+Document the staging boundary between the GitHub Pages Lab, the Node.js API and PostgreSQL/Supabase.
 
-## Environment
+## Current state
 
 - **Frontend:** GitHub Pages prototype.
 - **API:** Node.js service under `backend/`.
-- **Persistence:** MemoryRepository for this gate only.
-- **Database:** deferred to the next persistence gate.
-- **Authentication:** deferred until persistence and environment are ready.
+- **Local fallback:** MemoryRepository remains available when `DATABASE_URL` is absent.
+- **Persistent adapter:** PostgreSQL repository is implemented and wired when `DATABASE_URL` is present.
+- **Database:** NEXA-Studio Supabase project exists on the Free plan; canonical schema v1 has been applied and validated.
+- **Authentication:** designed, not yet implemented.
 - **Secrets:** environment variables only; never commit credentials.
 
-## Required staging variables
+## Runtime variables
 
 ```text
 PORT=3000
-CORS_ORIGIN=https://<github-pages-host>
+HOST=0.0.0.0
+NODE_ENV=production
+CORS_ORIGIN=https://sayjinblackbelt.github.io
+DATABASE_URL=<secret>
+DATABASE_SSL=true
+DATABASE_POOL_MAX=5
+DATABASE_IDLE_TIMEOUT_MS=10000
+DATABASE_CONNECTION_TIMEOUT_MS=5000
 ```
 
-`CORS_ORIGIN` may contain a comma-separated allowlist when multiple controlled origins are required. It must not be set to `*` for a real authenticated environment.
-
-## Browser boundary
-
-The Lab may call the API from another origin only when that origin is explicitly allowed by `CORS_ORIGIN`. The API supports the required preflight methods and headers for the current Client/Project integration.
+`DATABASE_URL` must be entered only in the hosting provider's secret/environment configuration. `CORS_ORIGIN` must remain restricted to approved browser origins.
 
 ## Health gate
 
@@ -32,27 +36,49 @@ The Lab may call the API from another origin only when that origin is explicitly
 GET /health
 ```
 
-Expected staging response includes:
+Current local API response identifies `phase: 4.10.3-A` and reports the active persistence mode (`memory` or `postgres`).
 
-```json
-{"status":"ok","service":"nexa-api","phase":"4.9"}
-```
+## 4.10.1 — PostgreSQL repository
 
-## Current limitations
+**PASS** — asynchronous PostgreSQL repository implemented for clients and projects, including UUID validation and database conflict/foreign-key mapping.
 
-1. Data is not persistent; restarting the process clears clients and projects.
-2. Authentication and authorization are not enabled yet.
-3. Supabase/PostgreSQL has not been provisioned.
-4. GitHub Pages cannot use `localhost` as its deployed API; a real staging URL is required before browser-to-API validation.
+## 4.10.2 — API → PostgreSQL wiring
 
-## Gate 4.9 acceptance criteria
+**PASS** — `DATABASE_URL` selects the PostgreSQL data layer; absence of the variable preserves the memory fallback. No database credentials are committed.
 
-- API has an explicit staging configuration contract.
-- CORS is deny-by-default unless an origin is configured.
-- OPTIONS preflight is supported for `/api/v1/*`.
-- Existing API validation and domain tests remain green.
-- No database or production credentials are introduced.
+## 4.10.3-A — Hosting preparation
 
-## Next gate
+**IN VALIDATION** — server binds to `0.0.0.0`, supports external hosting, CORS remains configurable, and health output identifies the preparation stage.
 
-**4.10 — persistence staging:** provision a staging PostgreSQL/Supabase environment only after confirming the target organization and cost implications, then execute the canonical schema and replace the memory repository behind the existing service boundary.
+## Acceptance criteria before 4.10.3-B
+
+- CI green after the hosting-preparation change.
+- Node syntax/tests green.
+- No secrets committed.
+- Render Free remains the planned hosting option with target cost US$0.
+
+## Next stages
+
+### 4.10.3-B — Render Free deployment
+
+Create the Web Service from `sayjinblackbelt/NEXA-Studio`, configure Node 20, `npm install`, `node backend/server.js`, health check `/health`, and the environment variables above.
+
+### 4.10.3-C — Render → Supabase
+
+Set `DATABASE_URL` as a Render secret and verify that the public API actually uses PostgreSQL rather than the memory fallback.
+
+### 4.10.3-D — Lab → public API
+
+Configure the Lab API base URL to the Render service and validate CORS, client/project creation and workflow transitions from GitHub Pages.
+
+### 4.10.4 — persistence/integration validation
+
+Restart the service and confirm records remain available. Validate the complete path: Lab → API → PostgreSQL → API → Lab.
+
+### 4.11 — authentication and RLS
+
+Only after persistence and public API integration are proven: implement Supabase Auth, roles, client isolation, RLS and authenticated API access.
+
+## Cost rule
+
+The NEXA deployment remains constrained to **US$0** until explicit approval is given for any paid resource. Do not upgrade Supabase or Render and do not add payment information as part of this roadmap.
