@@ -36,7 +36,7 @@ function mockPool() {
 
   const projectRepo = new PostgresRepository({ pool, table: 'projects' });
   const project = await projectRepo.create({ id, clientId: id, name: 'Project DB', stage: 'BRIEFING', health: 'ON_TRACK' });
-  assert.equal(project.client_id, id);
+  assert.equal(project.clientId, id);
   assert.equal(project.stage, 'BRIEFING');
 
   console.log('PASS: PostgreSQL repository contract tests');
