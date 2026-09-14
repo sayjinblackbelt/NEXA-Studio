@@ -1,0 +1,37 @@
+name: Backend Tests
+
+on:
+  push:
+    paths:
+      - 'backend/**'
+      - 'tests/**'
+      - '.github/workflows/backend-tests.yml'
+  pull_request:
+    paths:
+      - 'backend/**'
+      - 'tests/**'
+      - '.github/workflows/backend-tests.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Syntax checks
+        run: |
+          node --check backend/server.js
+          node --check backend/domain/errors.js
+          node --check backend/domain/project-rules.js
+          node --check backend/repositories/memory-repository.js
+          node --check backend/services/project-service.js
+      - name: Backend architecture tests
+        run: node tests/backend-architecture.test.js
+      - name: API v1 tests
+        run: node tests/api-v1.test.js
+      - name: Migration tests
+        run: node tests/migration-v1.test.js
