@@ -12,7 +12,7 @@ function request(method, path, body, headers = {}) {
       res.on('end', () => {
         let parsed = null;
         try { parsed = raw ? JSON.parse(raw) : null; } catch { parsed = { raw }; }
-        resolve({ status: res.statusCode, body: parsed });
+        resolve({ status: res.statusCode, headers: res.headers, body: parsed });
       });
     });
     req.on('error', reject);
@@ -26,7 +26,10 @@ function request(method, path, body, headers = {}) {
   try {
     let response = await request('GET', '/health');
     assert.equal(response.status, 200);
-    assert.equal(response.body.phase, '4.5');
+    assert.equal(response.body.phase, '4.9');
+
+    response = await request('OPTIONS', '/api/v1/clients', undefined, { Origin: 'https://example.com' });
+    assert.equal(response.status, 204);
 
     response = await request('POST', '/api/v1/clients', { id: 'c-test', name: 'API Client' });
     assert.equal(response.status, 201);
@@ -88,7 +91,7 @@ function request(method, path, body, headers = {}) {
     response = await request('GET', '/api/v1/clients/c-missing');
     assert.equal(response.status, 404);
 
-    console.log('PASS: API v1 phase 4.5 validation/security tests');
+    console.log('PASS: API v1 phase 4.9 tests');
   } finally {
     await new Promise((resolve) => server.close(resolve));
   }
