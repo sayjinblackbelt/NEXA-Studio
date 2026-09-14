@@ -4,87 +4,32 @@
 
 **PROTOTYPE — E3 Website / Experiência Digital**
 
-## Objective
+## Public Architecture
 
-Transform the public website into the first concrete expression of the Creative Studio positioning.
+1. Home — NEXA Studio / Ideias ganham forma.
+2. Manifesto — design, estratégia e comunicação.
+3. Selected Work — prototype cases until real projects are available.
+4. Capabilities — Branding, Design Gráfico, Design Digital, Comunicação Visual, Projetos Especiais.
+5. Process — Pensar → Criar → Construir → Comunicar.
+6. Principles — selected principles of the studio.
+7. Contact — direct invitation to start a project.
+8. Modelos — biblioteca dinâmica de templates reutilizáveis.
+9. NEXA Lab — workspace operacional/protótipo interno.
 
-## Creative Direction
+## Dynamic Models Library
 
-**Ideias ganham forma.**
+The public Pages layer includes `modelos.html`, backed by `data/modelos.json` and `js/modelos.js`.
 
-The website should feel like a creative portfolio/studio rather than a conventional agency website.
+The library supports search, category filters, sorting, model preview, copy and `Usar modelo` handoff to the NEXA Lab through localStorage and URL parameters.
 
-### Principles
+Initial models cover briefing, diagnosis, proposal, portfolio case, social media briefing and project README.
 
-- strong visual opening;
-- editorial composition;
-- asymmetry with control;
-- expressive typography;
-- contrast and scale;
-- generous negative space;
-- motion with purpose;
-- interactive project previews;
-- abstract HTML/CSS visual prototypes when real portfolio material is unavailable;
-- responsive behavior designed intentionally for mobile.
+The catalog is data-driven: new models can be added to the JSON catalog without rewriting the page structure.
 
-## Home Architecture
+## Prototype Rule
 
-1. **Hero** — NEXA Studio / Ideias ganham forma.
-2. **Manifesto** — short statement about turning ideas into communication.
-3. **Selected Work** — prototype cases until real projects are available.
-4. **Capabilities** — Branding, Design Gráfico, Design Digital, Comunicação Visual, Projetos Especiais.
-5. **Process** — Pensar → Criar → Construir → Comunicar.
-6. **Principles** — selected principles of the studio.
-7. **Contact** — direct invitation to start a project.
-
-## Prototype Cases
-
-Until real portfolio material exists, the website may use clearly marked conceptual projects:
-
-- **ORBITA** — identity / visual system;
-- **PULSE** — digital experience;
-- **MOVE** — campaign / communication;
-- **FORMA** — editorial / graphic design.
-
-These are **fictional prototypes**, not client work, and must never be presented as completed commercial projects.
-
-## Interaction Direction
-
-- subtle reveal animations;
-- hover states on project cards;
-- scroll-based rhythm/parallax only where it improves hierarchy;
-- lightweight CSS/JavaScript;
-- no dependency on unnecessary frameworks or libraries.
-
-## Content Rule
-
-Prototype material exists to demonstrate capability and visual language. As real projects become available, replace prototypes with approved cases without changing the information architecture unnecessarily.
+Prototype cases remain clearly identified as fictional until approved real portfolio cases replace them.
 
 ## QA Gate
 
-Before publication:
-
-- desktop layout checked;
-- mobile layout checked;
-- navigation checked;
-- links checked;
-- animations checked;
-- accessibility basics checked;
-- no fake client claims;
-- no confidential data;
-- performance reviewed;
-- GitHub Pages checked.
-
-## Implementation Rule
-
-Website files must be changed sequentially and tested locally before publication:
-
-1. `index.html`
-2. `css/style.css`
-3. `js/script.js`
-4. local validation
-5. GitHub Pages publication
-
-## Acceptance Criterion
-
-A first-time visitor should understand within seconds that NEXA is a **creative multidisciplinary design studio** and should be able to discover what it creates, see examples and start a conversation.
+Before public launch, check desktop/mobile, navigation, links, accessibility basics, performance, prototype labeling, dynamic JSON loading, preview/copy actions, Lab handoff and GitHub Pages publication.
