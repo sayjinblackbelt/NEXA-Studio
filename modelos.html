@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="NEXA Studio — biblioteca dinâmica de modelos e templates.">
+<title>NEXA Studio — Modelos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.models-page{background:#f4f4f0;color:#111;min-height:100vh}.models-header{padding:24px 0;border-bottom:1px solid #ccc}.models-main{padding:64px 0}.models-intro{display:flex;justify-content:space-between;gap:32px;align-items:end;margin-bottom:36px}.models-intro h1{font-size:clamp(3rem,8vw,7rem);line-height:.9;margin:8px 0}.models-intro em{font-style:normal;color:#666}.models-note{max-width:420px;line-height:1.6}.models-controls{display:grid;grid-template-columns:1fr auto;gap:12px;margin-bottom:28px}.models-controls input,.models-controls select{font:inherit;padding:15px 16px;border:1px solid #aaa;background:#fff}.model-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}.filter{border:1px solid #aaa;background:transparent;padding:9px 14px;cursor:pointer}.filter.active{background:#111;color:#fff}.models-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.model-card{background:#fff;border:1px solid #d1d1cc;padding:24px;min-height:250px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,box-shadow .2s}.model-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #00000012}.model-top{display:flex;justify-content:space-between;gap:12px}.model-category{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}.model-card h2{font-size:1.55rem;margin:22px 0 10px}.model-card p{color:#555;line-height:1.55}.model-tags{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0}.model-tag{font-size:.72rem;padding:5px 8px;background:#eee}.model-actions{display:flex;gap:8px}.model-actions button{font:inherit;padding:10px 13px;cursor:pointer;border:1px solid #111;background:#111;color:#fff}.model-actions .secondary{background:transparent;color:#111}.empty-models{padding:50px;border:1px dashed #aaa;text-align:center}.modal-backdrop{position:fixed;inset:0;background:#0009;display:grid;place-items:center;padding:20px;z-index:20}.modal{background:#fff;max-width:760px;width:100%;max-height:85vh;overflow:auto;padding:32px}.modal-head{display:flex;justify-content:space-between;gap:20px}.modal-close{border:0;background:transparent;font-size:1.8rem;cursor:pointer}.modal pre{white-space:pre-wrap;font:inherit;line-height:1.65;background:#f4f4f0;padding:20px;margin-top:24px}.models-footer{padding:32px 0;border-top:1px solid #ccc}@media(max-width:800px){.models-intro{display:block}.models-controls{grid-template-columns:1fr}.models-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="models-page">
+<header class="models-header"><div class="wrap nav-wrap"><a class="brand" href="index.html">NEXA<span>®</span></a><nav aria-label="Navegação"><a href="index.html">Studio</a><a href="studio.html">NEXA Lab</a></nav></div></header>
+<main class="wrap models-main">
+<section class="models-intro"><div><p class="kicker dark">NEXA STUDIO / TEMPLATE LIBRARY</p><h1>Modelos<br><em>que aceleram.</em></h1></div><p class="models-note">Uma biblioteca viva de estruturas reutilizáveis para briefing, propostas, projetos e comunicação. Os modelos são carregados dinamicamente a partir de dados estruturados.</p></section>
+<section class="models-controls" aria-label="Busca e ordenação"><input id="model-search" type="search" placeholder="Buscar modelo..." aria-label="Buscar modelo"><select id="model-sort" aria-label="Ordenar modelos"><option value="featured">Destaques</option><option value="name">Nome</option><option value="category">Categoria</option></select></section>
+<div id="model-filters" class="model-filters"></div>
+<section id="models-grid" class="models-grid" aria-live="polite"></section>
+</main>
+<footer class="models-footer"><div class="wrap">NEXA Studio · Biblioteca de modelos · Prototype</div></footer>
+<div id="model-modal-root"></div>
+<script src="js/modelos.js"></script>
+</body></html>
