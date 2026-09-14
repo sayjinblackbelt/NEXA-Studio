@@ -5,6 +5,7 @@ on:
     paths:
       - 'backend/**'
       - 'tests/**'
+      - 'package.json'
       - '.github/workflows/backend-tests.yml'
       - 'js/api-client.js'
       - 'js/lab-api-sync.js'
@@ -13,6 +14,7 @@ on:
     paths:
       - 'backend/**'
       - 'tests/**'
+      - 'package.json'
       - '.github/workflows/backend-tests.yml'
       - 'js/api-client.js'
       - 'js/lab-api-sync.js'
@@ -28,14 +30,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
       - name: Syntax checks
         run: |
           node --check backend/server.js
+          node --check backend/database.js
           node --check backend/domain/errors.js
           node --check backend/domain/project-rules.js
           node --check backend/repositories/memory-repository.js
           node --check backend/repositories/postgres-repository.js
           node --check backend/services/project-service.js
+          node --check backend/services/persistent-project-service.js
           node --check js/api-client.js
           node --check js/lab-api-sync.js
       - name: Backend architecture tests
