@@ -1,0 +1,16 @@
+{
+  "name": "nexa-studio-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NEXA Studio API runtime",
+  "main": "backend/server.js",
+  "scripts": {
+    "test": "node tests/backend-architecture.test.js && node tests/api-v1.test.js && node tests/api-client.test.js && node tests/migration-v1.test.js && node tests/postgres-repository.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "pg": "^8.16.3"
+  }
+}
