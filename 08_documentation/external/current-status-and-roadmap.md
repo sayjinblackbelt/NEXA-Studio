@@ -30,6 +30,13 @@ A implementação ainda **não está pronta para uso comercial público** porque
 - camada de consistência visual para contraste, grid, espaçamento, mockups, tipografia, elementos técnicos, mobile e reduced motion;
 - status de protótipo explicitado no conteúdo público.
 
+### Documentação
+
+- README trilingue (Português / English / Español);
+- link do site GitHub Pages em destaque no README;
+- NEXA Lab e biblioteca de modelos documentados;
+- status e roadmap sincronizados em 15/09/2026.
+
 ### Arquitetura e dados
 
 - modelo de entidades e relacionamentos definido;
@@ -73,7 +80,7 @@ A implementação ainda **não está pronta para uso comercial público** porque
 
 **IN VALIDATION**
 
-A preparação para hosting está implementada. A camada visual pública, o portfolio de 14 concept cases e o carrossel de destaque também estão implementados. O próximo gate objetivo é o deploy da API.
+A preparação para hosting está implementada. A camada visual pública, o portfolio de 14 concept cases, o carrossel de destaque e a documentação pública trilingue também estão implementados. O próximo gate objetivo é o deploy da API.
 
 ## 4. Próximos passos
 
