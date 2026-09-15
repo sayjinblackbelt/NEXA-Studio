@@ -1,12 +1,12 @@
 # NEXA Studio — Status Atual e Roadmap de Implementação
 
-**Data de referência:** 14/09/2026
+**Data de referência:** 15/09/2026
 
 ## 1. Status executivo
 
 **NEXA Studio — infraestrutura em implementação.**
 
-O projeto já possui posicionamento de marca, operação documentada, site público protótipo, NEXA Lab, modelo de domínio, contrato de dados, schema PostgreSQL, API v1, validações, CI, repositório PostgreSQL e conexão lógica com Supabase.
+O projeto possui posicionamento de marca, operação documentada, site público protótipo, NEXA Lab, biblioteca de modelos, portfolio dinâmico com 14 concept cases, carrossel de projetos em destaque, sistema visual público consistente, modelo de domínio, contrato de dados, schema PostgreSQL, API v1, validações, CI, repositório PostgreSQL e conexão lógica com Supabase.
 
 A implementação ainda **não está pronta para uso comercial público** porque o backend ainda não foi hospedado publicamente, a integração Lab → API pública não foi validada e autenticação/RLS ainda não foram implementados.
 
@@ -17,7 +17,18 @@ A implementação ainda **não está pronta para uso comercial público** porque
 - fases internas 1–11 estruturadas e documentadas;
 - posicionamento, serviços, processos, QA, governança, métricas e manutenção definidos;
 - site público protótipo e NEXA Lab implementados;
+- biblioteca dinâmica de modelos implementada;
 - separação entre conteúdo público e operação interna definida.
+
+### Experiência pública
+
+- homepage com direção visual experimental/futurista;
+- portfolio carregado dinamicamente a partir de `data/portfolio.json`;
+- 14 concept cases;
+- mockups e materiais expandidos para os principais cases;
+- carrossel de projetos em destaque com navegação, autoplay, indicadores e suporte mobile;
+- camada de consistência visual para contraste, grid, espaçamento, mockups, tipografia, elementos técnicos, mobile e reduced motion;
+- status de protótipo explicitado no conteúdo público.
 
 ### Arquitetura e dados
 
@@ -62,9 +73,9 @@ A implementação ainda **não está pronta para uso comercial público** porque
 
 **IN VALIDATION**
 
-A preparação foi implementada e o teste de API foi atualizado para a nova identificação de fase. O próximo CI deve ser usado como gate objetivo.
+A preparação para hosting está implementada. A camada visual pública, o portfolio de 14 concept cases e o carrossel de destaque também estão implementados. O próximo gate objetivo é o deploy da API.
 
-## 4. Próximos passos prováveis
+## 4. Próximos passos
 
 ```text
 4.10.3-A  Preparação para hosting        ← ATUAL
