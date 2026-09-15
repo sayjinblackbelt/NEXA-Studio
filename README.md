@@ -4,9 +4,15 @@
 
 ## 🌐 LIVE SITE — GITHUB PAGES
 
-### **[https://sayjinblackbelt.github.io/NEXA-Studio/](https://sayjinblackbelt.github.io/NEXA-Studio/)**
+### **[ABRIR NEXA STUDIO →](https://sayjinblackbelt.github.io/NEXA-Studio/)**
 
-**[NEXA Lab](https://sayjinblackbelt.github.io/NEXA-Studio/studio.html)** · **[Modelos](https://sayjinblackbelt.github.io/NEXA-Studio/modelos.html)**
+**[NEXA Lab](https://sayjinblackbelt.github.io/NEXA-Studio/studio.html)** · **[Modelos](https://sayjinblackbelt.github.io/NEXA-Studio/modelos.html)** · **[GitHub Repository](https://github.com/sayjinblackbelt/NEXA-Studio)**
+
+---
+
+## Language / Idioma
+
+**[🇧🇷 Português](#-português)** · **[🇺🇸 English](#-english)** · **[🇪🇸 Español](#-español)**
 
 ---
 
@@ -34,9 +40,9 @@ A **NEXA Studio** é um estúdio multidisciplinar que cruza **design, estratégi
 
 **Pensar → Criar → Construir → Comunicar**
 
-### Site público
+### Experiência pública
 
-A homepage possui experiência visual experimental/futurista, hero animado, portfolio dinâmico, **14 concept cases**, mockups, materiais de projeto, filtros e carrossel de projetos em destaque.
+A homepage possui direção visual experimental/futurista, hero animado, portfolio dinâmico, **14 concept cases**, mockups, materiais de projeto, filtros e carrossel de projetos em destaque.
 
 Os cases são **conceituais** e não representam clientes, resultados ou métricas reais.
 
@@ -44,33 +50,36 @@ Os cases são **conceituais** e não representam clientes, resultados ou métric
 
 Workspace operacional para projetos, clientes, portfolio, workflow, QA e ferramentas. Atualmente funciona como protótipo operacional com fallback local e integração de API preparada.
 
-### Arquitetura atual
+### Estrutura
 
 ```text
 NEXA-Studio/
-├── 01_brand/
-├── 02_services/
-├── 03_clients/
-├── 04_projects/
-├── 05_portfolio/
-├── 06_templates/
-├── 07_assets/
-├── 08_documentation/
-├── 09_proposals/
-├── 10_archive/
-├── backend/
-├── css/
-├── js/
-├── tests/
-├── index.html
-├── studio.html
-└── modelos.html
+├── 01_brand/              # Marca e fundamentos
+├── 02_services/           # Serviços
+├── 03_clients/            # Clientes
+├── 04_projects/           # Projetos
+├── 05_portfolio/          # Portfolio
+├── 06_templates/          # Modelos
+├── 07_assets/             # Assets
+├── 08_documentation/      # Documentação
+├── 09_proposals/          # Propostas
+├── 10_archive/            # Arquivo
+├── backend/               # API / persistência
+├── css/                   # Sistema visual
+├── js/                    # Frontend
+├── tests/                 # Testes
+├── index.html             # Site público
+├── studio.html            # NEXA Lab
+└── modelos.html           # Biblioteca de modelos
 ```
 
 ### Plataforma técnica
 
 - Frontend estático publicado no GitHub Pages;
 - portfolio carregado dinamicamente por `data/portfolio.json`;
+- 14 concept cases;
+- mockups e materiais expandidos;
+- carrossel de projetos em destaque;
 - biblioteca dinâmica de modelos;
 - NEXA Lab;
 - API v1 em Node.js;
@@ -78,8 +87,8 @@ NEXA-Studio/
 - PostgreSQL repository;
 - integração preparada para Supabase;
 - CI e testes automatizados;
-- governança, QA, segurança e manutenção documentados;
-- camada visual pública de consistência e responsividade.
+- camada de consistência visual pública;
+- documentação de governança, QA, segurança e manutenção.
 
 ## Status técnico — 15/09/2026
 
@@ -147,9 +156,9 @@ O site utiliza concept cases e contato demonstrativo. O lançamento comercial de
 
 **Think → Create → Build → Communicate**
 
-### Public website
+### Public experience
 
-The public homepage features an experimental/futuristic visual experience, animated hero, dynamic portfolio, **14 concept cases**, mockups, project materials, filters and a featured-project carousel.
+The homepage features an experimental/futuristic visual direction, animated hero, dynamic portfolio, **14 concept cases**, mockups, project materials, filters and a featured-project carousel.
 
 All current cases are **conceptual** and do not represent real clients, results or metrics.
 
@@ -157,11 +166,35 @@ All current cases are **conceptual** and do not represent real clients, results 
 
 An operational workspace for projects, clients, portfolio, workflow, QA and production tools. It currently operates as an operational prototype with local fallback and a prepared API integration layer.
 
-### Technical status — 15 Sep 2026
+### Technical platform
+
+- Static frontend published through GitHub Pages;
+- dynamic portfolio loaded from `data/portfolio.json`;
+- 14 concept cases;
+- expanded mockups and project materials;
+- featured-project carousel;
+- dynamic template library;
+- NEXA Lab;
+- Node.js API v1;
+- PostgreSQL schema v1 and repository;
+- Supabase integration prepared;
+- automated CI and tests;
+- public visual consistency layer;
+- governance, QA, security and maintenance documentation.
+
+## Technical status — 15 Sep 2026
 
 **4.10.3-A — HOSTING PREPARATION / IN VALIDATION**
 
-Completed gates include PostgreSQL repository and API-to-PostgreSQL wiring. The public visual consistency pass and featured portfolio carousel are implemented. The Supabase project remains on the Free plan, with schema v1 applied. The API is not yet publicly hosted.
+Completed gates:
+
+- 4.10.1 — PostgreSQL Repository: **PASS**
+- 4.10.2 — API → PostgreSQL Wiring: **PASS**
+- public visual consistency review: **IMPLEMENTED**
+- portfolio: **14 concept cases**
+- featured carousel: **IMPLEMENTED**
+
+The **NEXA-Studio** Supabase project remains on the Free plan with schema v1 applied. The API is not yet publicly hosted.
 
 ### Next stages
 
@@ -177,13 +210,13 @@ Completed gates include PostgreSQL repository and API-to-PostgreSQL wiring. The 
 
 Detailed roadmap: [`08_documentation/external/current-status-and-roadmap.md`](08_documentation/external/current-status-and-roadmap.md).
 
-### Financial rule
+## Financial rule
 
 **Current target cost: US$0.**
 
 No paid upgrade, paid resource or credit card should be added without an explicit decision.
 
-### Public status
+## Public status
 
 **INTERNAL PROTOTYPE — NOT READY FOR PUBLIC COMMERCIAL LAUNCH**
 
@@ -215,9 +248,9 @@ The website currently uses concept cases and demonstrative contact information. 
 
 **Pensar → Crear → Construir → Comunicar**
 
-### Sitio público
+### Experiencia pública
 
-La página principal presenta una experiencia visual experimental/futurista, hero animado, portfolio dinámico, **14 concept cases**, mockups, materiales de proyectos, filtros y un carrusel de proyectos destacados.
+La página principal presenta una dirección visual experimental/futurista, hero animado, portfolio dinámico, **14 concept cases**, mockups, materiales de proyectos, filtros y un carrusel de proyectos destacados.
 
 Todos los casos actuales son **conceptuales** y no representan clientes, resultados ni métricas reales.
 
@@ -225,11 +258,35 @@ Todos los casos actuales son **conceptuales** y no representan clientes, resulta
 
 Espacio operativo para proyectos, clientes, portfolio, workflow, QA y herramientas de producción. Actualmente funciona como prototipo operativo con almacenamiento local de respaldo y una capa de integración API preparada.
 
-### Estado técnico — 15/09/2026
+### Plataforma técnica
+
+- Frontend estático publicado en GitHub Pages;
+- portfolio dinámico desde `data/portfolio.json`;
+- 14 concept cases;
+- mockups y materiales ampliados;
+- carrusel de proyectos destacados;
+- biblioteca dinámica de modelos;
+- NEXA Lab;
+- API Node.js v1;
+- schema y repositorio PostgreSQL v1;
+- integración preparada con Supabase;
+- CI y pruebas automatizadas;
+- capa pública de consistencia visual;
+- documentación de gobernanza, QA, seguridad y mantenimiento.
+
+## Estado técnico — 15/09/2026
 
 **4.10.3-A — HOSTING PREPARATION / IN VALIDATION**
 
-Ya están aprobados el repositorio PostgreSQL y la conexión API → PostgreSQL. La revisión de consistencia visual pública y el carrusel de proyectos destacados están implementados. El proyecto Supabase continúa en el plan Free, con el schema v1 aplicado. La API todavía no está alojada públicamente.
+Gates completados:
+
+- 4.10.1 — PostgreSQL Repository: **PASS**
+- 4.10.2 — API → PostgreSQL Wiring: **PASS**
+- revisión visual pública: **IMPLEMENTED**
+- portfolio: **14 concept cases**
+- carrusel destacado: **IMPLEMENTED**
+
+El proyecto **NEXA-Studio** en Supabase continúa en el plan Free, con el schema v1 aplicado. La API todavía no está alojada públicamente.
 
 ### Próximas etapas
 
@@ -245,13 +302,13 @@ Ya están aprobados el repositorio PostgreSQL y la conexión API → PostgreSQL.
 
 Roadmap detallado: [`08_documentation/external/current-status-and-roadmap.md`](08_documentation/external/current-status-and-roadmap.md).
 
-### Regla financiera
+## Regla financiera
 
 **Costo objetivo actual: US$0.**
 
 No se debe añadir ninguna actualización, recurso de pago o tarjeta sin una decisión explícita.
 
-### Estado público
+## Estado público
 
 **INTERNAL PROTOTYPE — NOT READY FOR PUBLIC COMMERCIAL LAUNCH**
 
