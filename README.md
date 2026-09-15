@@ -12,7 +12,7 @@
 
 ## Language / Idioma
 
-**[🇧🇷 Português](#-português)** · **[🇺🇸 English](#-english)** · **[🇪🇸 Español](#-español)**
+**[🇧🇷 Português](#português)** · **[🇺🇸 English](#english)** · **[🇪🇸 Español](#español)**
 
 ---
 
