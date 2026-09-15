@@ -10,6 +10,16 @@
         output.textContent = model.content;
         output.dataset.modelId = model.modelId || '';
       }
+      try {
+        localStorage.setItem('nexa-workflow-context', JSON.stringify({
+          sourceModelId: model.modelId || '',
+          sourceModelName: model.name || '',
+          sourceCategory: model.category || '',
+          sourcePurpose: model.purpose || '',
+          content: model.content || '',
+          updatedAt: new Date().toISOString()
+        }));
+      } catch (_) {}
       document.querySelectorAll('.tab').forEach(tab => tab.classList.toggle('active', tab.dataset.tab === 'tools'));
       document.querySelectorAll('.panel').forEach(panel => panel.classList.toggle('active', panel.id === 'tools'));
       history.replaceState(null, '', '#tools');
