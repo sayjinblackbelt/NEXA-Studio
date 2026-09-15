@@ -24,10 +24,6 @@ A **NEXA Studio** é um estúdio multidisciplinar que cruza **design, estratégi
 
 **Manifesto:** Não criamos apenas peças. Construímos sistemas de comunicação.
 
-### Posicionamento
-
-> Transformar ideias em comunicação visual que gera compreensão, conexão e valor.
-
 ### Serviços
 
 - Branding
@@ -50,41 +46,16 @@ Os cases são **conceituais** e não representam clientes, resultados ou métric
 
 Workspace operacional para projetos, clientes, portfolio, workflow, QA e ferramentas. Atualmente funciona como protótipo operacional com fallback local e integração de API preparada.
 
-### Estrutura
-
-```text
-NEXA-Studio/
-├── 01_brand/              # Marca e fundamentos
-├── 02_services/           # Serviços
-├── 03_clients/            # Clientes
-├── 04_projects/           # Projetos
-├── 05_portfolio/          # Portfolio
-├── 06_templates/          # Modelos
-├── 07_assets/             # Assets
-├── 08_documentation/      # Documentação
-├── 09_proposals/          # Propostas
-├── 10_archive/            # Arquivo
-├── backend/               # API / persistência
-├── css/                   # Sistema visual
-├── js/                    # Frontend
-├── tests/                 # Testes
-├── index.html             # Site público
-├── studio.html            # NEXA Lab
-└── modelos.html           # Biblioteca de modelos
-```
-
 ### Plataforma técnica
 
 - Frontend estático publicado no GitHub Pages;
-- portfolio carregado dinamicamente por `data/portfolio.json`;
-- 14 concept cases;
-- mockups e materiais expandidos;
+- portfolio dinâmico por `data/portfolio.json`;
+- 14 concept cases e materiais expandidos;
 - carrossel de projetos em destaque;
 - biblioteca dinâmica de modelos;
 - NEXA Lab;
 - API v1 em Node.js;
-- PostgreSQL schema v1;
-- PostgreSQL repository;
+- PostgreSQL schema v1 e repository;
 - integração preparada para Supabase;
 - CI e testes automatizados;
 - camada de consistência visual pública;
@@ -101,6 +72,7 @@ Gates concluídos:
 - revisão visual pública: **IMPLEMENTED**
 - portfolio: **14 concept cases**
 - carrossel de destaque: **IMPLEMENTED**
+- README/documentação pública: **UPDATED — PT / EN / ES**
 
 O Supabase **NEXA-Studio** permanece no plano Free, com schema v1 aplicado. A API ainda não está hospedada publicamente.
 
@@ -116,7 +88,7 @@ O Supabase **NEXA-Studio** permanece no plano Free, com schema v1 aplicado. A AP
 8. **4.14** — beta interno;
 9. **E8** — preparação comercial e publicação final.
 
-Roadmap detalhado: [`08_documentation/external/current-status-and-roadmap.md`](08_documentation/external/current-status-and-roadmap.md).
+Roadmap: [`08_documentation/external/current-status-and-roadmap.md`](08_documentation/external/current-status-and-roadmap.md).
 
 ## Regra financeira
 
@@ -139,10 +111,6 @@ O site utiliza concept cases e contato demonstrativo. O lançamento comercial de
 **NEXA Studio** is a multidisciplinary design and visual communication studio combining **design, strategy, technology and communication** to turn ideas, projects and businesses into professional visual solutions.
 
 **Manifesto:** We do not create only individual pieces. We build communication systems.
-
-### Positioning
-
-> Transform ideas into visual communication that creates understanding, connection and value.
 
 ### Services
 
@@ -169,9 +137,8 @@ An operational workspace for projects, clients, portfolio, workflow, QA and prod
 ### Technical platform
 
 - Static frontend published through GitHub Pages;
-- dynamic portfolio loaded from `data/portfolio.json`;
-- 14 concept cases;
-- expanded mockups and project materials;
+- dynamic portfolio from `data/portfolio.json`;
+- 14 concept cases and expanded materials;
 - featured-project carousel;
 - dynamic template library;
 - NEXA Lab;
@@ -193,6 +160,7 @@ Completed gates:
 - public visual consistency review: **IMPLEMENTED**
 - portfolio: **14 concept cases**
 - featured carousel: **IMPLEMENTED**
+- public documentation: **UPDATED — PT / EN / ES**
 
 The **NEXA-Studio** Supabase project remains on the Free plan with schema v1 applied. The API is not yet publicly hosted.
 
@@ -232,10 +200,6 @@ The website currently uses concept cases and demonstrative contact information. 
 
 **Manifiesto:** No creamos solamente piezas. Construimos sistemas de comunicación.
 
-### Posicionamiento
-
-> Transformar ideas en comunicación visual que genere comprensión, conexión y valor.
-
 ### Servicios
 
 - Branding
@@ -262,8 +226,7 @@ Espacio operativo para proyectos, clientes, portfolio, workflow, QA y herramient
 
 - Frontend estático publicado en GitHub Pages;
 - portfolio dinámico desde `data/portfolio.json`;
-- 14 concept cases;
-- mockups y materiales ampliados;
+- 14 concept cases y materiales ampliados;
 - carrusel de proyectos destacados;
 - biblioteca dinámica de modelos;
 - NEXA Lab;
@@ -285,6 +248,7 @@ Gates completados:
 - revisión visual pública: **IMPLEMENTED**
 - portfolio: **14 concept cases**
 - carrusel destacado: **IMPLEMENTED**
+- documentación pública: **UPDATED — PT / EN / ES**
 
 El proyecto **NEXA-Studio** en Supabase continúa en el plan Free, con el schema v1 aplicado. La API todavía no está alojada públicamente.
 
