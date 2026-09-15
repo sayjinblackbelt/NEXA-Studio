@@ -34,7 +34,7 @@ A implementação ainda **não está pronta para uso comercial público** porque
 
 - README trilingue (Português / English / Español);
 - link do site GitHub Pages em destaque no README;
-- NEXA Lab e biblioteca de modelos documentados;
+- links para NEXA Lab, Modelos e repositório;
 - status e roadmap sincronizados em 15/09/2026.
 
 ### Arquitetura e dados
