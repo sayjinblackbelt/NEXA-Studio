@@ -10,17 +10,15 @@
   `;
   document.head.appendChild(style);
   fetch(dataUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error();return r.json()}).then(data=>{
-    const projects=data.filter(p=>p.featured && p.materials && p.materials.length);
+    const projects=data.filter(p=>p.featured && p.materials && p.materials.length).sort((a,b)=>(a.priority??999)-(b.priority??999));
     if(!projects.length)return;
-    let index=0, timer=null, elapsed=0, startX=0;
+    let index=0,timer=null,elapsed=0,startX=0;
     const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     root.innerHTML=`<div class="featured-progress"><i></i></div><div class="featured-carousel"><div class="featured-track">${projects.map(p=>`<article class="featured-slide"><div class="featured-slide-art"><img src="${imageFor(p)}" alt="Mockup conceitual ${esc(p.name)}" loading="lazy"></div><div class="featured-slide-copy"><div><p class="kicker">FEATURED / ${esc(p.category)}</p><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="featured-tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div></div><div><p class="case-type">${esc(p.type)}</p><span class="case-link">Explorar no portfólio ↗</span></div></div></article>`).join('')}</div></div><div class="featured-controls"><span class="featured-counter">01 / ${String(projects.length).padStart(2,'0')}</span><div class="featured-dots">${projects.map((_,i)=>`<button class="featured-dot ${i===0?'active':''}" data-slide="${i}" aria-label="Ir para projeto ${i+1}"></button>`).join('')}</div><div class="featured-arrows"><button class="featured-arrow" data-dir="prev" aria-label="Projeto anterior">←</button><button class="featured-arrow" data-dir="next" aria-label="Próximo projeto">→</button></div></div>`;
-    const track=root.querySelector('.featured-track'), counter=root.querySelector('.featured-counter'), dots=[...root.querySelectorAll('.featured-dot')], progress=root.querySelector('.featured-progress i');
+    const track=root.querySelector('.featured-track'),counter=root.querySelector('.featured-counter'),dots=[...root.querySelectorAll('.featured-dot')],progress=root.querySelector('.featured-progress i');
     const goTo=n=>{index=(n+projects.length)%projects.length;track.style.transform=`translateX(-${index*100}%)`;counter.textContent=`${String(index+1).padStart(2,'0')} / ${String(projects.length).padStart(2,'0')}`;dots.forEach((d,i)=>d.classList.toggle('active',i===index));elapsed=0;progress.style.width='0%'};
     const start=()=>{if(reduced)return;clearInterval(timer);timer=setInterval(()=>{elapsed+=100;progress.style.width=`${Math.min(100,elapsed/60)}%`;if(elapsed>=6000)goTo(index+1)},100)};
     root.addEventListener('click',e=>{const arrow=e.target.closest('[data-dir]');if(arrow){goTo(index+(arrow.dataset.dir==='next'?1:-1));start();return}const dot=e.target.closest('[data-slide]');if(dot){goTo(Number(dot.dataset.slide));start()}});
-    root.addEventListener('mouseenter',()=>clearInterval(timer));root.addEventListener('mouseleave',start);
-    root.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX;clearInterval(timer)},{passive:true});root.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45)goTo(index+(dx<0?1:-1));start()},{passive:true});
-    goTo(0);start();
+    root.addEventListener('mouseenter',()=>clearInterval(timer));root.addEventListener('mouseleave',start);root.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX;clearInterval(timer)},{passive:true});root.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45)goTo(index+(dx<0?1:-1));start()},{passive:true});goTo(0);start();
   }).catch(()=>{root.innerHTML='';});
 })();
