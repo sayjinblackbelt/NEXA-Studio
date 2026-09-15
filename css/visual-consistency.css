@@ -1,6 +1,10 @@
 /* NEXA Studio — visual consistency layer
    Pass 01: contrast + legibility
    Pass 02: grid + spacing
+   Pass 03: mockup treatment
+   Pass 04: typography
+   Pass 05: recurring technical elements
+   Pass 06: mobile + reduced motion
 */
 :root{
   --nexa-black:#050505;
@@ -57,8 +61,88 @@ body.public-page{background:var(--nexa-black);color:var(--nexa-white)}
 .public-page .featured-slide-copy .case-type{margin-top:34px}
 .public-page .section-dark#work{padding-bottom:155px}
 
+/* PASS 03 — mockup treatment: preserve complete artwork and create one visual frame */
+.public-page .case-art,
+.public-page .featured-slide-art{
+  border:1px solid #292b30;
+  background:linear-gradient(145deg,#17191d,#101114);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.025),0 18px 55px rgba(0,0,0,.22);
+}
+.public-page .case-art img,
+.public-page .featured-slide-art img{
+  object-fit:contain;
+}
+.public-page .case-material{
+  border-color:#303239;
+  background:#101114;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.025);
+}
+.public-page .case-material img{
+  object-fit:contain;
+  padding:10px;
+  background:#101114;
+}
+.public-page .case-material:hover{border-color:#4a4c53}
+.public-page .case-material span{border:1px solid rgba(242,242,238,.14)}
+.public-page .case-art small{font-family:'Space Grotesk',sans-serif;letter-spacing:.12em;color:rgba(242,242,238,.72)}
+
+/* PASS 04 — typography hierarchy */
+.public-page .case-meta,
+.public-page .case-tags,
+.public-page .case-link,
+.public-page .featured-counter,
+.public-page .featured-dot,
+.public-page .featured-arrow,
+.public-page .case-materials-title{
+  font-family:'Space Grotesk',sans-serif;
+}
+.public-page .case-meta{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase}
+.public-page .case-type{font-size:.82rem;letter-spacing:.02em}
+.public-page .case-body>p:not(.case-type){font-size:.9rem}
+.public-page .case-link{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+.public-page .case-tags span{font-size:.61rem}
+.public-page .section-note{font-size:.88rem}
+.public-page .featured-counter{letter-spacing:.12em;font-size:.65rem}
+
+/* PASS 05 — recurring technical elements */
+.public-page .case-card:before,
+.public-page .featured-slide:before{
+  content:'';
+  position:absolute;
+  pointer-events:none;
+  z-index:1;
+  inset:10px;
+  border:1px solid rgba(255,255,255,.035);
+}
+.public-page .case-card .case-art:before,
+.public-page .featured-slide-art:before{
+  content:'+';
+  position:absolute;
+  left:14px;
+  top:12px;
+  z-index:2;
+  font:400 .8rem 'Space Grotesk';
+  color:rgba(217,255,0,.58);
+}
+.public-page .case-card .case-art:after{
+  font-family:'Space Grotesk',sans-serif;
+}
+.public-page .featured-slide-art{position:relative}
+.public-page .featured-slide-art:after{
+  content:'NEXA / SELECTED';
+  position:absolute;
+  right:14px;
+  bottom:12px;
+  font:500 .55rem 'Space Grotesk';
+  letter-spacing:.14em;
+  color:rgba(242,242,238,.55);
+}
+.public-page .case-card{transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.public-page .case-card:hover{border-color:#3b3e46;box-shadow:0 20px 60px rgba(0,0,0,.28)}
+
 @media(max-width:800px){
-  .public-page .case-toolbar{margin-top:38px;margin-bottom:22px}
+  /* PASS 06 — mobile */
+  .public-page .case-toolbar{margin-top:38px;margin-bottom:22px;gap:14px}
   .public-page .featured-wrap{margin-bottom:54px}
   .public-page .public-case-grid{grid-template-columns:1fr;gap:48px}
   .public-page .public-case-grid .case-card,
@@ -67,10 +151,16 @@ body.public-page{background:var(--nexa-black);color:var(--nexa-white)}
   .public-page .public-case-grid .case-card:nth-child(3n){grid-column:1}
   .public-page .case-art{height:300px;padding:14px}
   .public-page .case-body{padding-top:18px}
+  .public-page .case-body h3{font-size:clamp(2rem,13vw,3.1rem)}
+  .public-page .case-body>p:not(.case-type){font-size:.88rem;line-height:1.6}
   .public-page .featured-slide-copy{gap:22px}
   .public-page .featured-slide-copy .case-type{margin-top:26px}
+  .public-page .case-materials{gap:14px}
+  .public-page .case-material,.public-page .case-material img{min-height:190px}
+  .public-page .case-material img{padding:14px}
+  .public-page .case-card:before{inset:8px}
 }
 
 @media(prefers-reduced-motion:reduce){
-  .public-page .case-card{transform:none!important}
+  .public-page .case-card{transform:none!important;transition:none!important}
 }
