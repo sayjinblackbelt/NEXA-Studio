@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1600" role="img" aria-labelledby="title desc">
+<title id="title">NEXA Studio — Mobile Mockup</title><desc id="desc">Aplicação mobile da identidade NEXA Studio.</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#D9FF00"/><stop offset=".5" stop-color="#22D3EE"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient><filter id="blur"><feGaussianBlur stdDeviation="28"/></filter></defs>
+<rect width="1000" height="1600" fill="#050505"/>
+<path d="M0 200H1000M0 400H1000M0 600H1000M0 800H1000M0 1000H1000M0 1200H1000M0 1400H1000M100 0V1600M300 0V1600M500 0V1600M700 0V1600M900 0V1600" stroke="#F2F2EE" stroke-opacity=".045"/>
+<text x="70" y="100" fill="#D9FF00" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="4">NEXA / MOBILE SYSTEM</text>
+<text x="70" y="155" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="44" font-weight="800">NEXA Studio</text>
+<text x="70" y="190" fill="#8B8881" font-family="Arial,sans-serif" font-size="14">A connected visual communication system.</text>
+<ellipse cx="500" cy="870" rx="380" ry="420" fill="#22D3EE" opacity=".08" filter="url(#blur)"/>
+<rect x="245" y="275" width="510" height="1080" rx="65" fill="#101114" stroke="#F2F2EE" stroke-opacity=".28" stroke-width="4"/>
+<rect x="270" y="315" width="460" height="1000" rx="42" fill="#17191D"/>
+<rect x="430" y="335" width="140" height="10" rx="5" fill="#050505"/>
+<text x="310" y="410" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="22" font-weight="800">NEXA</text>
+<text x="310" y="438" fill="#D9FF00" font-family="monospace" font-size="10" letter-spacing="2">STUDIO / HOME</text>
+<line x1="310" y1="475" x2="690" y2="475" stroke="#F2F2EE" stroke-opacity=".14"/>
+<text x="310" y="530" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="42" font-weight="800">Ideas</text>
+<text x="310" y="570" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="42" font-weight="800">become</text>
+<text x="310" y="610" fill="#D9FF00" font-family="Arial,sans-serif" font-size="42" font-weight="800">systems.</text>
+<rect x="310" y="655" width="380" height="220" fill="#101114" stroke="#F2F2EE" stroke-opacity=".12"/>
+<path d="M335 835C390 770 425 815 470 735S560 780 610 705S655 730 675 680" fill="none" stroke="url(#g)" stroke-width="5"/>
+<path d="M335 800H675M335 750H675M335 700H675" stroke="#F2F2EE" stroke-opacity=".06"/>
+<text x="335" y="690" fill="#8B8881" font-family="monospace" font-size="10">SYSTEM SIGNAL / 92</text>
+<rect x="310" y="915" width="180" height="125" fill="#D9FF00"/><text x="335" y="980" fill="#050505" font-family="Arial,sans-serif" font-size="28" font-weight="800">WORK</text>
+<rect x="510" y="915" width="180" height="125" fill="#22D3EE"/><text x="535" y="980" fill="#050505" font-family="Arial,sans-serif" font-size="28" font-weight="800">LAB</text>
+<rect x="310" y="1070" width="380" height="100" fill="#101114" stroke="#F2F2EE" stroke-opacity=".12"/>
+<text x="335" y="1110" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="16" font-weight="700">Communication system</text>
+<text x="335" y="1140" fill="#8B8881" font-family="Arial,sans-serif" font-size="11">Identity · Digital · Editorial</text>
+<circle cx="500" cy="1260" r="25" fill="#8B5CF6"/><circle cx="500" cy="1260" r="10" fill="#D9FF00"/>
+<text x="70" y="1490" fill="#F2F2EE" font-family="monospace" font-size="12">MOBILE APPLICATION / 2026 / CONCEPT MOCKUP</text>
+<text x="70" y="1525" fill="#8B8881" font-family="monospace" font-size="11">VOID BLACK · GRAPHITE · SOFT WHITE · LUMINOUS ACCENTS</text>
+</svg>
