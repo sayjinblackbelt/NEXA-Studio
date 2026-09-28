@@ -1,0 +1,46 @@
+:root{
+  --nexa-void:#050505;
+  --nexa-graphite:#101114;
+  --nexa-surface:#17191D;
+  --nexa-white:#F2F2EE;
+  --nexa-lime:#D9FF00;
+  --nexa-violet:#8B5CF6;
+  --nexa-cyan:#22D3EE;
+  --nexa-magenta:#F43F8E;
+  --nexa-orange:#FF7A00;
+  --nexa-line:rgba(242,242,238,.16);
+  --nexa-line-strong:rgba(242,242,238,.28);
+  --nexa-max:1440px;
+}
+.nexa-brand-board{
+  background:var(--nexa-void);
+  color:var(--nexa-white);
+  font-family:Inter,Arial,sans-serif;
+  min-height:100vh;
+}
+.nexa-brand-board .eyebrow{
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--nexa-lime);
+}
+.nexa-brand-board h1,.nexa-brand-board h2,.nexa-brand-board p{margin:0}
+.nexa-brand-board .display{
+  font-size:clamp(3rem,8vw,8rem);line-height:.88;letter-spacing:-.065em;font-weight:800;
+}
+.nexa-brand-board .grid{
+  background-image:linear-gradient(to right,var(--nexa-line) 1px,transparent 1px),linear-gradient(to bottom,var(--nexa-line) 1px,transparent 1px);
+  background-size:calc(100% / 12) 100%,100% 64px;
+}
+.nexa-brand-board .surface{background:var(--nexa-surface);border:1px solid var(--nexa-line)}
+.nexa-brand-board .swatches{display:grid;grid-template-columns:repeat(9,1fr);gap:8px}
+.nexa-brand-board .swatch{aspect-ratio:1;border:1px solid var(--nexa-line);padding:10px;display:flex;align-items:flex-end;font:600 .65rem/1 monospace}
+.nexa-brand-board .swatch--void{background:var(--nexa-void)}
+.nexa-brand-board .swatch--graphite{background:var(--nexa-graphite)}
+.nexa-brand-board .swatch--surface{background:var(--nexa-surface)}
+.nexa-brand-board .swatch--white{background:var(--nexa-white);color:var(--nexa-void)}
+.nexa-brand-board .swatch--lime{background:var(--nexa-lime);color:var(--nexa-void)}
+.nexa-brand-board .swatch--violet{background:var(--nexa-violet)}
+.nexa-brand-board .swatch--cyan{background:var(--nexa-cyan);color:var(--nexa-void)}
+.nexa-brand-board .swatch--magenta{background:var(--nexa-magenta)}
+.nexa-brand-board .swatch--orange{background:var(--nexa-orange);color:var(--nexa-void)}
+@media(max-width:800px){
+  .nexa-brand-board .swatches{grid-template-columns:repeat(3,1fr)}
+}
