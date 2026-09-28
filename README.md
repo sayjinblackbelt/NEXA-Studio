@@ -164,6 +164,14 @@ Completed gates:
 
 The **NEXA-Studio** Supabase project remains on the Free plan with schema v1 applied. The API is not yet publicly hosted.
 
+### Brand system
+
+- Brand Kit NEXA Studio em SVG/CSS;
+- mockups desktop e mobile;
+- aplicação editorial;
+- integração do sistema visual à homepage;
+- assets mantidos em `07_assets/brand/generated/` sem dependências pagas.
+
 ### Next stages
 
 1. **4.10.3-B** — Deploy the Node.js API on Render Free;
