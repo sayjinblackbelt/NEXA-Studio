@@ -12,10 +12,11 @@
 
 ## Language / Idioma
 
-**[🇧🇷 Português](#português)** · **[🇺🇸 English](#english)** · **[🇪🇸 Español](#español)**
+**[🇧🇷 Português](#pt)** · **[🇺🇸 English](#en)** · **[🇪🇸 Español](#es)**
 
 ---
 
+<a id="pt"></a>
 # 🇧🇷 Português
 
 ## Sobre
@@ -49,6 +50,25 @@ Os cases são **conceituais** e não representam clientes, resultados ou métric
 - aplicação editorial;
 - integração do sistema visual à homepage;
 - assets mantidos em `07_assets/brand/generated/` sem dependências pagas.
+
+### Estrutura do repositório
+
+```text
+NEXA-Studio/
+├── 01_brand/ … 10_archive/     # organização estratégica e documental
+├── assets/mockups/              # mockups públicos dos concept cases
+├── backend/                     # API Node.js + domínio + persistência
+├── css/                         # estilos públicos e consistência visual
+├── data/                        # portfolio e biblioteca de modelos
+├── js/                          # runtime frontend, Lab, cliente API e componentes
+├── tests/                       # testes automatizados do backend
+├── index.html                   # homepage pública
+├── studio.html                  # NEXA Lab
+├── modelos.html                 # biblioteca de modelos
+└── package.json                 # runtime/testes da API
+```
+
+`07_assets/brand/generated/` mantém os ativos oficiais do sistema de marca. `assets/mockups/` é a camada de mockups consumida diretamente pelo portfolio público.
 
 ### NEXA Lab
 
@@ -112,6 +132,7 @@ O site utiliza concept cases e contato demonstrativo. O lançamento comercial de
 
 ---
 
+<a id="en"></a>
 # 🇺🇸 English
 
 ## About
@@ -137,6 +158,25 @@ O site utiliza concept cases e contato demonstrativo. O lançamento comercial de
 The homepage features an experimental/futuristic visual direction, animated hero, dynamic portfolio, **14 concept cases**, mockups, project materials, filters and a featured-project carousel.
 
 All current cases are **conceptual** and do not represent real clients, results or metrics.
+
+### Repository structure
+
+```text
+NEXA-Studio/
+├── 01_brand/ … 10_archive/     # strategic and documentation organization
+├── assets/mockups/              # public mockups for concept cases
+├── backend/                     # Node.js API + domain + persistence
+├── css/                         # public styles and visual consistency
+├── data/                        # portfolio and template library
+├── js/                          # frontend runtime, Lab, API client and components
+├── tests/                       # automated backend tests
+├── index.html                   # public homepage
+├── studio.html                  # NEXA Lab
+├── modelos.html                 # template library
+└── package.json                 # API runtime/tests
+```
+
+`07_assets/brand/generated/` contains the official brand-system assets. `assets/mockups/` contains the mockups consumed directly by the public portfolio.
 
 ### NEXA Lab
 
@@ -208,6 +248,7 @@ The website currently uses concept cases and demonstrative contact information. 
 
 ---
 
+<a id="es"></a>
 # 🇪🇸 Español
 
 ## Sobre
@@ -241,6 +282,25 @@ Todos los casos actuales son **conceptuales** y no representan clientes, resulta
 - aplicación editorial;
 - integración del sistema visual en la homepage;
 - assets mantenidos en `07_assets/brand/generated/` sin dependencias de pago.
+
+### Estructura del repositorio
+
+```text
+NEXA-Studio/
+├── 01_brand/ … 10_archive/     # organización estratégica y documental
+├── assets/mockups/              # mockups públicos de los concept cases
+├── backend/                     # API Node.js + dominio + persistencia
+├── css/                         # estilos públicos y consistencia visual
+├── data/                        # portfolio y biblioteca de modelos
+├── js/                          # runtime frontend, Lab, cliente API y componentes
+├── tests/                       # pruebas automatizadas del backend
+├── index.html                   # homepage pública
+├── studio.html                  # NEXA Lab
+├── modelos.html                 # biblioteca de modelos
+└── package.json                 # runtime/pruebas de la API
+```
+
+`07_assets/brand/generated/` contiene los activos oficiales del sistema de marca. `assets/mockups/` contiene los mockups consumidos directamente por el portfolio público.
 
 ### NEXA Lab
 
