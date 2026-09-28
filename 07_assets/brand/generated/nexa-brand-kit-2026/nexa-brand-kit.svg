@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">NEXA Studio — Brand Kit</title>
+<desc id="desc">Brand board oficial da NEXA Studio com sistema visual, tipografia, grid e paleta de cores.</desc>
+<defs>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9FF00"/><stop offset=".45" stop-color="#22D3EE"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient>
+  <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M100 0H0V100" fill="none" stroke="#F2F2EE" stroke-opacity=".08"/></pattern>
+</defs>
+<rect width="1600" height="1000" fill="#050505"/>
+<rect width="1600" height="1000" fill="url(#grid)"/>
+<rect x="70" y="70" width="1460" height="860" rx="2" fill="#101114" stroke="#F2F2EE" stroke-opacity=".16"/>
+<path d="M70 250H1530M70 690H1530M820 70V930" stroke="#F2F2EE" stroke-opacity=".16"/>
+<text x="110" y="130" fill="#D9FF00" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="5">NEXA / STUDIO / BRAND SYSTEM 01</text>
+<text x="110" y="225" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="112" font-weight="800" letter-spacing="-7">NEXA</text>
+<text x="110" y="260" fill="#8B5CF6" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="5">DESIGN &amp; VISUAL COMMUNICATION STUDIO</text>
+<text x="870" y="150" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="18" letter-spacing="2">CORE PRINCIPLE</text>
+<text x="870" y="195" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="34" font-weight="700">Não criamos apenas peças.</text>
+<text x="870" y="238" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="34" font-weight="700">Construímos sistemas</text>
+<text x="870" y="281" fill="#D9FF00" font-family="Arial,sans-serif" font-size="34" font-weight="700">de comunicação.</text>
+<circle cx="1300" cy="360" r="112" fill="none" stroke="url(#accent)" stroke-width="2"/>
+<circle cx="1300" cy="360" r="72" fill="none" stroke="#22D3EE" stroke-opacity=".5"/>
+<circle cx="1300" cy="360" r="12" fill="#D9FF00"/>
+<path d="M1180 360H1420M1300 240V480" stroke="#F2F2EE" stroke-opacity=".12"/>
+<text x="110" y="325" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">VISUAL LANGUAGE</text>
+<rect x="110" y="355" width="590" height="250" fill="#17191D" stroke="#F2F2EE" stroke-opacity=".16"/>
+<path d="M140 560H670M140 520H670M140 480H670M140 440H670M140 400H670M200 385V575M270 385V575M340 385V575M410 385V575M480 385V575M550 385V575M620 385V575" stroke="#F2F2EE" stroke-opacity=".08"/>
+<path d="M150 545C230 500 250 510 320 450S430 480 500 420S590 440 660 390" fill="none" stroke="#D9FF00" stroke-width="5"/>
+<text x="110" y="735" fill="#F2F2EE" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">PALETTE / 70 DARK — 20 NEUTRAL — 10 LUMINOUS</text>
+<g transform="translate(110 765)">
+<rect width="130" height="105" fill="#050505"/><rect x="140" width="130" height="105" fill="#101114"/><rect x="280" width="130" height="105" fill="#17191D"/><rect x="420" width="130" height="105" fill="#F2F2EE"/>
+<rect x="560" width="130" height="105" fill="#D9FF00"/><rect x="700" width="130" height="105" fill="#8B5CF6"/><rect x="840" width="130" height="105" fill="#22D3EE"/><rect x="980" width="130" height="105" fill="#F43F8E"/><rect x="1120" width="130" height="105" fill="#FF7A00"/>
+<g font-family="monospace" font-size="12" font-weight="700"><text y="125" fill="#F2F2EE">#050505</text><text x="140" y="125" fill="#F2F2EE">#101114</text><text x="280" y="125" fill="#F2F2EE">#17191D</text><text x="420" y="125" fill="#F2F2EE">#F2F2EE</text><text x="560" y="125" fill="#D9FF00">#D9FF00</text><text x="700" y="125" fill="#8B5CF6">#8B5CF6</text><text x="840" y="125" fill="#22D3EE">#22D3EE</text><text x="980" y="125" fill="#F43F8E">#F43F8E</text><text x="1120" y="125" fill="#FF7A00">#FF7A00</text></g>
+</g>
+</svg>
