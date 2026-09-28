@@ -42,6 +42,14 @@ A homepage possui direção visual experimental/futurista, hero animado, portfol
 
 Os cases são **conceituais** e não representam clientes, resultados ou métricas reais.
 
+### Sistema de marca
+
+- Brand Kit NEXA Studio em SVG/CSS;
+- mockups desktop e mobile;
+- aplicação editorial;
+- integração do sistema visual à homepage;
+- assets mantidos em `07_assets/brand/generated/` sem dependências pagas.
+
 ### NEXA Lab
 
 Workspace operacional para projetos, clientes, portfolio, workflow, QA e ferramentas. Atualmente funciona como protótipo operacional com fallback local e integração de API preparada.
@@ -61,7 +69,7 @@ Workspace operacional para projetos, clientes, portfolio, workflow, QA e ferrame
 - camada de consistência visual pública;
 - documentação de governança, QA, segurança e manutenção.
 
-## Status técnico — 15/09/2026
+## Status técnico — 28/09/2026
 
 **4.10.3-A — HOSTING PREPARATION / IN VALIDATION**
 
@@ -149,7 +157,7 @@ An operational workspace for projects, clients, portfolio, workflow, QA and prod
 - public visual consistency layer;
 - governance, QA, security and maintenance documentation.
 
-## Technical status — 15 Sep 2026
+## Technical status — 28 Sep 2026
 
 **4.10.3-A — HOSTING PREPARATION / IN VALIDATION**
 
@@ -166,11 +174,11 @@ The **NEXA-Studio** Supabase project remains on the Free plan with schema v1 app
 
 ### Brand system
 
-- Brand Kit NEXA Studio em SVG/CSS;
-- mockups desktop e mobile;
-- aplicação editorial;
-- integração do sistema visual à homepage;
-- assets mantidos em `07_assets/brand/generated/` sem dependências pagas.
+- NEXA Studio Brand Kit in SVG/CSS;
+- desktop and mobile mockups;
+- editorial application;
+- visual system integrated into the homepage;
+- assets maintained under `07_assets/brand/generated/` with no paid dependencies.
 
 ### Next stages
 
@@ -226,6 +234,14 @@ La página principal presenta una dirección visual experimental/futurista, hero
 
 Todos los casos actuales son **conceptuales** y no representan clientes, resultados ni métricas reales.
 
+### Sistema de marca
+
+- Brand Kit NEXA Studio en SVG/CSS;
+- mockups de escritorio y móvil;
+- aplicación editorial;
+- integración del sistema visual en la homepage;
+- assets mantenidos en `07_assets/brand/generated/` sin dependencias de pago.
+
 ### NEXA Lab
 
 Espacio operativo para proyectos, clientes, portfolio, workflow, QA y herramientas de producción. Actualmente funciona como prototipo operativo con almacenamiento local de respaldo y una capa de integración API preparada.
@@ -245,7 +261,7 @@ Espacio operativo para proyectos, clientes, portfolio, workflow, QA y herramient
 - capa pública de consistencia visual;
 - documentación de gobernanza, QA, seguridad y mantenimiento.
 
-## Estado técnico — 15/09/2026
+## Estado técnico — 28/09/2026
 
 **4.10.3-A — HOSTING PREPARATION / IN VALIDATION**
 
