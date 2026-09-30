@@ -6,6 +6,7 @@
   let projects = [];
   let active = 'Todos';
   const imageFor = p => `assets/mockups/${encodeURIComponent(p.id)}.svg`;
+  const fallbackImageFor = p => Array.isArray(p.materials) && p.materials.length ? `assets/mockups/${encodeURIComponent(p.materials[0].file)}` : '';
   const materialImageFor = (p, file) => `assets/mockups/${encodeURIComponent(file)}`;
   const style = document.createElement('style');
   style.textContent = `
@@ -17,6 +18,7 @@
     .case-art{height:360px;background:#111;isolation:isolate;overflow:hidden}.case-art img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s;filter:saturate(.9)}.case-card:hover .case-art img{transform:scale(1.035);filter:saturate(1.15)}.case-art:after{content:'CONCEPT / NEXA';position:absolute;right:15px;bottom:14px;z-index:2;font-size:.56rem;letter-spacing:.14em;color:rgba(255,255,255,.65);mix-blend-mode:difference}.case-art small{z-index:3}.case-body{position:relative;z-index:2}.case-body h3{font-size:clamp(2rem,3.5vw,3.1rem)}.case-link{transition:letter-spacing .25s}.case-link:hover{letter-spacing:.16em}
     .case-dialog>.case-art{height:390px}.case-dialog>.case-art img{object-fit:contain}.case-dialog{box-shadow:0 30px 100px rgba(0,0,0,.55)}
     .case-materials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:26px}.case-material{display:block;position:relative;overflow:hidden;background:#101114;border:1px solid #292b30;min-height:150px}.case-material img{width:100%;height:100%;min-height:150px;object-fit:cover;display:block;transition:transform .55s ease,filter .4s}.case-material:hover img{transform:scale(1.045);filter:brightness(1.08)}.case-material span{position:absolute;left:12px;bottom:10px;padding:6px 8px;background:rgba(5,5,5,.78);color:#f2f2ee;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.case-materials-title{margin-top:28px;color:#8f939b;font-size:.7rem;letter-spacing:.16em}
+    .case-art img.is-fallback{opacity:.98}
     @keyframes heroOrbit{to{transform:rotateX(62deg) rotateZ(378deg)}}@keyframes orbPulse{50%{filter:brightness(1.15)}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.case-card{transform:none!important}}
     @media(max-width:800px){.hero-art:before{width:360px;height:360px}.hero-art:after{right:0;top:4%;font-size:.5rem}.case-art{height:300px;padding:10px}.case-art img{object-fit:contain}.case-dialog>.case-art{height:250px;padding:8px}.case-materials{grid-template-columns:1fr}.case-material,.case-material img{min-height:190px}}
@@ -24,7 +26,12 @@
   document.head.appendChild(style);
   const esc = v => String(v ?? '').replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[c]));
   const categories = () => ['Todos', ...new Set(projects.map(p => p.category))];
-  const art = p => `<div class="case-art art-${esc(p.accent)}"><img src="${imageFor(p)}" alt="Mockup conceitual do projeto ${esc(p.name)}" loading="lazy"><small>NEXA / ${esc(p.category)}</small></div>`;
+  const art = p => {
+    const primary = imageFor(p);
+    const fallback = fallbackImageFor(p);
+    const onerror = fallback ? ` onerror="this.onerror=null;this.classList.add('is-fallback');this.src='${fallback}'"` : '';
+    return `<div class="case-art art-${esc(p.accent)}"><img src="${primary}" alt="Mockup conceitual do projeto ${esc(p.name)}" loading="lazy"${onerror}><small>NEXA / ${esc(p.category)}</small></div>`;
+  };
   const materials = p => Array.isArray(p.materials) && p.materials.length ? `<div class="case-materials-title">VISUAL MATERIALS / ${p.materials.length}</div><div class="case-materials">${p.materials.map(m => `<a class="case-material" href="${materialImageFor(p,m.file)}" target="_blank" rel="noopener" aria-label="Abrir ${esc(m.label)}"><img src="${materialImageFor(p,m.file)}" alt="${esc(m.label)} — ${esc(p.name)}" loading="lazy"><span>${esc(m.label)}</span></a>`).join('')}</div>` : '';
   const renderFilters = () => { filters.innerHTML = categories().map(c => `<button class="case-filter ${c===active?'active':''}" data-case-filter="${esc(c)}">${esc(c)}</button>`).join(''); };
   const render = () => {
