@@ -1,14 +1,17 @@
-/* NEXA Studio — lightweight public visitor counter.
-   Uses CountAPI-compatible endpoint. Replace API_BASE if the provider changes. */
+/* NEXA Studio — reusable public visitor counter for static GitHub Pages.
+   LibreCounter provides the count server-side without requiring a project backend.
+   The referrer identifies the page being counted. */
 (function(){
-  const API_BASE = 'https://api.countapi.xyz';
-  const namespace = 'nexa-studio-github-pages';
-  const key = 'homepage-visits';
   const els = document.querySelectorAll('[data-nexa-visitor-count]');
   if (!els.length) return;
-  const set = value => els.forEach(el => { el.textContent = Number(value || 0).toLocaleString('pt-BR'); });
-  fetch(`${API_BASE}/hit/${namespace}/${key}`, { cache: 'no-store' })
-    .then(r => { if (!r.ok) throw new Error('visitor counter unavailable'); return r.json(); })
-    .then(data => set(data.value))
-    .catch(() => set('—'));
+  els.forEach(el => {
+    const img = document.createElement('img');
+    img.src = 'https://librecounter.org/counter.svg';
+    img.alt = 'Contador de visitantes';
+    img.referrerPolicy = 'unsafe-url';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.className = 'nexa-visitor-counter__image';
+    el.replaceWith(img);
+  });
 })();
