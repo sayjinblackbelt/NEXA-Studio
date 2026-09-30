@@ -51,6 +51,14 @@ Os cases são **conceituais** e não representam clientes, resultados ou métric
 - integração do sistema visual à homepage;
 - assets mantidos em `07_assets/brand/generated/` sem dependências pagas.
 
+### Contador de visitantes
+
+A homepage possui um contador público de visitas integrado ao padrão visual NEXA. O componente é reutilizável em novas páginas estáticas e funciona sem backend próprio. A implementação e a regra de aplicação estão documentadas em [`08_documentation/external/page-standard.md`](08_documentation/external/page-standard.md).
+
+### Padrão permanente para novas páginas GitHub Pages
+
+Toda nova página do GitHub Pages que **não seja de uso educacional** deve utilizar referências/estilos do NEXA Studio e incluir o contador de visitantes. Páginas educacionais ficam explicitamente fora desta regra.
+
 ### Estrutura do repositório
 
 ```text
@@ -82,6 +90,7 @@ Workspace operacional para projetos, clientes, portfolio, workflow, QA e ferrame
 - carrossel de projetos em destaque;
 - biblioteca dinâmica de modelos;
 - NEXA Lab;
+- contador público de visitantes reutilizável;
 - API v1 em Node.js;
 - PostgreSQL schema v1 e repository;
 - integração preparada para Supabase;
@@ -101,6 +110,7 @@ Gates concluídos:
 - portfolio: **14 concept cases**
 - carrossel de destaque: **IMPLEMENTED**
 - README/documentação pública: **UPDATED — PT / EN / ES**
+- contador público de visitantes: **IMPLEMENTED**
 
 O Supabase **NEXA-Studio** permanece no plano Free, com schema v1 aplicado. A API ainda não está hospedada publicamente.
 
@@ -159,6 +169,14 @@ The homepage features an experimental/futuristic visual direction, animated hero
 
 All current cases are **conceptual** and do not represent real clients, results or metrics.
 
+### Visitor counter
+
+The homepage includes a public visitor counter integrated into the NEXA visual system. The component is reusable on static pages without requiring the project's own backend. The implementation rule is documented in [`08_documentation/external/page-standard.md`](08_documentation/external/page-standard.md).
+
+### Permanent standard for new GitHub Pages
+
+Every new GitHub Pages page that is **not educational** must use NEXA Studio visual references/styles and include the visitor counter. Educational pages are explicitly excluded.
+
 ### Repository structure
 
 ```text
@@ -190,6 +208,7 @@ An operational workspace for projects, clients, portfolio, workflow, QA and prod
 - featured-project carousel;
 - dynamic template library;
 - NEXA Lab;
+- reusable public visitor counter;
 - Node.js API v1;
 - PostgreSQL schema v1 and repository;
 - Supabase integration prepared;
@@ -209,6 +228,7 @@ Completed gates:
 - portfolio: **14 concept cases**
 - featured carousel: **IMPLEMENTED**
 - public documentation: **UPDATED — PT / EN / ES**
+- public visitor counter: **IMPLEMENTED**
 
 The **NEXA-Studio** Supabase project remains on the Free plan with schema v1 applied. The API is not yet publicly hosted.
 
@@ -275,6 +295,14 @@ La página principal presenta una dirección visual experimental/futurista, hero
 
 Todos los casos actuales son **conceptuales** y no representan clientes, resultados ni métricas reales.
 
+### Contador de visitantes
+
+La homepage incluye un contador público de visitas integrado al sistema visual NEXA. El componente puede reutilizarse en páginas estáticas sin requerir el backend propio del proyecto. La regla de implementación está documentada en [`08_documentation/external/page-standard.md`](08_documentation/external/page-standard.md).
+
+### Estándar permanente para nuevas páginas GitHub Pages
+
+Toda nueva página de GitHub Pages que **no sea educativa** debe utilizar referencias/estilos de NEXA Studio e incluir el contador de visitantes. Las páginas educativas quedan explícitamente excluidas.
+
 ### Sistema de marca
 
 - Brand Kit NEXA Studio en SVG/CSS;
@@ -314,6 +342,7 @@ Espacio operativo para proyectos, clientes, portfolio, workflow, QA y herramient
 - carrusel de proyectos destacados;
 - biblioteca dinámica de modelos;
 - NEXA Lab;
+- contador público de visitantes reutilizable;
 - API Node.js v1;
 - schema y repositorio PostgreSQL v1;
 - integración preparada con Supabase;
@@ -333,6 +362,7 @@ Gates completados:
 - portfolio: **14 concept cases**
 - carrusel destacado: **IMPLEMENTED**
 - documentación pública: **UPDATED — PT / EN / ES**
+- contador público de visitantes: **IMPLEMENTED**
 
 El proyecto **NEXA-Studio** en Supabase continúa en el plan Free, con el schema v1 aplicado. La API todavía no está alojada públicamente.
 
