@@ -1,0 +1,14 @@
+@media(max-width:800px){
+  .site-header{padding:11px 0}
+  .nav-wrap{gap:10px}
+  .brand{flex:0 0 auto}
+  .nav-wrap nav{display:flex;flex:1;min-width:0;gap:16px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:3px 2px}
+  .nav-wrap nav::-webkit-scrollbar{display:none}
+  .nav-wrap nav a{font-size:.6rem;white-space:nowrap;opacity:.9}
+  .nav-cta{display:inline-block;flex:0 0 auto;padding:8px 9px;font-size:.58rem}
+}
+@media(max-width:480px){
+  .nav-cta{font-size:0;padding:8px 10px}
+  .nav-cta::after{content:'LAB ↗';font-size:.58rem}
+  .nav-wrap nav{gap:14px}
+}
