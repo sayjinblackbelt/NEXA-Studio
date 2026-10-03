@@ -25,8 +25,9 @@
   `;
   document.head.appendChild(style);
   const esc = v => String(v ?? '').replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[c]));
-  const categories = () => ['Todos', ...new Set(projects.map(p => p.category))];
-  const categoryCount = c => c === 'Todos' ? projects.length : projects.filter(p => p.category === c).length;
+  const categories = () => ['Todos', ...new Set(projects.map(p => p.category)), ...(projects.some(p => p.tags?.includes('Worldbuilding')) ? ['Worldbuilding + Futurismo Estratégico'] : [])];
+  const matchesCategory = (p, c) => c === 'Worldbuilding + Futurismo Estratégico' ? p.tags?.includes('Worldbuilding') || p.tags?.includes('Futuro') : p.category === c;
+  const categoryCount = c => c === 'Todos' ? projects.length : projects.filter(p => matchesCategory(p,c)).length;
   const art = p => {
     const primary = imageFor(p);
     const fallback = fallbackImageFor(p);
@@ -36,7 +37,7 @@
   const materials = p => Array.isArray(p.materials) && p.materials.length ? `<div class="case-materials-title">VISUAL MATERIALS / ${p.materials.length}</div><div class="case-materials">${p.materials.map(m => `<a class="case-material" href="${materialImageFor(p,m.file)}" target="_blank" rel="noopener" aria-label="Abrir ${esc(m.label)}"><img src="${materialImageFor(p,m.file)}" alt="${esc(m.label)} — ${esc(p.name)}" loading="lazy"><span>${esc(m.label)}</span></a>`).join('')}</div>` : '';
   const renderFilters = () => { filters.innerHTML = categories().map(c => `<button class="case-filter ${c===active?'active':''}" data-case-filter="${esc(c)}" aria-pressed="${c===active}"><span>${esc(c)}</span><b>${categoryCount(c)}</b></button>`).join(''); };
   const render = () => {
-    const list = active === 'Todos' ? projects : projects.filter(p => p.category === active);
+    const list = active === 'Todos' ? projects : projects.filter(p => matchesCategory(p, active));
     const count = document.querySelector('.case-count'); if(count) count.textContent = `${list.length} CONCEPT CASES`; 
     root.innerHTML = list.map(p => `<article class="case-card ${p.featured?'featured':''}" data-tilt>${art(p)}<div class="case-body"><div class="case-meta"><span>${esc(p.category)}</span><span>${p.featured?'FEATURED':'CONCEPT'} · ${p.materials?.length||0} VIEWS</span></div><h3>${esc(p.name)}</h3><p class="case-type">${esc(p.type)}</p><p>${esc(p.description)}</p><div class="case-tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="case-accent-line art-${esc(p.accent)}"></div><button class="case-link" data-case="${esc(p.id)}">Explorar projeto <span>↗</span></button><a class="case-page-link" href="case.html?id=${encodeURIComponent(p.id)}">Página completa ↗</a></div></article>`).join('');
     bindTilt();
