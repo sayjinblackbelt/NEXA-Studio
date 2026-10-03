@@ -38,7 +38,7 @@
   const render = () => {
     const list = active === 'Todos' ? projects : projects.filter(p => p.category === active);
     const count = document.querySelector('.case-count'); if(count) count.textContent = `${list.length} CONCEPT CASES`; 
-    root.innerHTML = list.map(p => `<article class="case-card ${p.featured?'featured':''}" data-tilt>${art(p)}<div class="case-body"><div class="case-meta"><span>${esc(p.category)}</span><span>${p.featured?'FEATURED':'CONCEPT'} · ${p.materials?.length||0} VIEWS</span></div><h3>${esc(p.name)}</h3><p class="case-type">${esc(p.type)}</p><p>${esc(p.description)}</p><div class="case-tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="case-accent-line art-${esc(p.accent)}"></div><button class="case-link" data-case="${esc(p.id)}">Explorar projeto <span>↗</span></button></div></article>`).join('');
+    root.innerHTML = list.map(p => `<article class="case-card ${p.featured?'featured':''}" data-tilt>${art(p)}<div class="case-body"><div class="case-meta"><span>${esc(p.category)}</span><span>${p.featured?'FEATURED':'CONCEPT'} · ${p.materials?.length||0} VIEWS</span></div><h3>${esc(p.name)}</h3><p class="case-type">${esc(p.type)}</p><p>${esc(p.description)}</p><div class="case-tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="case-accent-line art-${esc(p.accent)}"></div><button class="case-link" data-case="${esc(p.id)}">Explorar projeto <span>↗</span></button><a class="case-page-link" href="case.html?id=${encodeURIComponent(p.id)}">Página completa ↗</a></div></article>`).join('');
     bindTilt();
   };
   const open = p => {
