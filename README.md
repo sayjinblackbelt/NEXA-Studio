@@ -39,7 +39,7 @@ A **NEXA Studio** é um estúdio multidisciplinar que cruza **design, estratégi
 
 ### Experiência pública
 
-A homepage possui direção visual experimental/futurista, hero animado, portfolio dinâmico, **14 concept cases**, mockups, materiais de projeto, filtros e carrossel de projetos em destaque.
+A homepage possui direção visual experimental/futurista, hero animado, portfolio dinâmico, **18 concept cases**, mockups, materiais de projeto, filtros e carrossel de projetos em destaque.
 
 Os cases são **conceituais** e não representam clientes, resultados ou métricas reais.
 
@@ -86,7 +86,7 @@ Workspace operacional para projetos, clientes, portfolio, workflow, QA e ferrame
 
 - Frontend estático publicado no GitHub Pages;
 - portfolio dinâmico por `data/portfolio.json`;
-- 14 concept cases e materiais expandidos;
+- 18 concept cases e materiais expandidos;
 - carrossel de projetos em destaque;
 - biblioteca dinâmica de modelos;
 - NEXA Lab;
@@ -107,7 +107,7 @@ Gates concluídos:
 - 4.10.1 — PostgreSQL Repository: **PASS**
 - 4.10.2 — API → PostgreSQL Wiring: **PASS**
 - revisão visual pública: **IMPLEMENTED**
-- portfolio: **14 concept cases**
+- portfolio: **18 concept cases**
 - carrossel de destaque: **IMPLEMENTED**
 - README/documentação pública: **UPDATED — PT / EN / ES**
 - contador público de visitantes: **IMPLEMENTED**
@@ -165,7 +165,7 @@ O site utiliza concept cases e contato demonstrativo. O lançamento comercial de
 
 ### Public experience
 
-The homepage features an experimental/futuristic visual direction, animated hero, dynamic portfolio, **14 concept cases**, mockups, project materials, filters and a featured-project carousel.
+The homepage features an experimental/futuristic visual direction, animated hero, dynamic portfolio, **18 concept cases**, mockups, project materials, filters and a featured-project carousel.
 
 All current cases are **conceptual** and do not represent real clients, results or metrics.
 
@@ -204,7 +204,7 @@ An operational workspace for projects, clients, portfolio, workflow, QA and prod
 
 - Static frontend published through GitHub Pages;
 - dynamic portfolio from `data/portfolio.json`;
-- 14 concept cases and expanded materials;
+- 18 concept cases and expanded materials;
 - featured-project carousel;
 - dynamic template library;
 - NEXA Lab;
@@ -225,7 +225,7 @@ Completed gates:
 - 4.10.1 — PostgreSQL Repository: **PASS**
 - 4.10.2 — API → PostgreSQL Wiring: **PASS**
 - public visual consistency review: **IMPLEMENTED**
-- portfolio: **14 concept cases**
+- portfolio: **18 concept cases**
 - featured carousel: **IMPLEMENTED**
 - public documentation: **UPDATED — PT / EN / ES**
 - public visitor counter: **IMPLEMENTED**
@@ -291,7 +291,7 @@ The website currently uses concept cases and demonstrative contact information. 
 
 ### Experiencia pública
 
-La página principal presenta una dirección visual experimental/futurista, hero animado, portfolio dinámico, **14 concept cases**, mockups, materiales de proyectos, filtros y un carrusel de proyectos destacados.
+La página principal presenta una dirección visual experimental/futurista, hero animado, portfolio dinámico, **18 concept cases**, mockups, materiales de proyectos, filtros y un carrusel de proyectos destacados.
 
 Todos los casos actuales son **conceptuales** y no representan clientes, resultados ni métricas reales.
 
@@ -338,7 +338,7 @@ Espacio operativo para proyectos, clientes, portfolio, workflow, QA y herramient
 
 - Frontend estático publicado en GitHub Pages;
 - portfolio dinámico desde `data/portfolio.json`;
-- 14 concept cases y materiales ampliados;
+- 18 concept cases y materiales ampliados;
 - carrusel de proyectos destacados;
 - biblioteca dinámica de modelos;
 - NEXA Lab;
@@ -359,7 +359,7 @@ Gates completados:
 - 4.10.1 — PostgreSQL Repository: **PASS**
 - 4.10.2 — API → PostgreSQL Wiring: **PASS**
 - revisión visual pública: **IMPLEMENTED**
-- portfolio: **14 concept cases**
+- portfolio: **18 concept cases**
 - carrusel destacado: **IMPLEMENTED**
 - documentación pública: **UPDATED — PT / EN / ES**
 - contador público de visitantes: **IMPLEMENTED**
