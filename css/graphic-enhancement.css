@@ -71,3 +71,6 @@ html{scroll-behavior:smooth}
 .public-page .case-count{font:600 .58rem 'Space Grotesk';letter-spacing:.16em;color:#666;white-space:nowrap}
 @media(max-width:800px){.public-page .case-toolbar{display:block}.public-page .case-filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:5px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.public-page .case-filters::-webkit-scrollbar{display:none}.public-page .case-filter{flex:0 0 auto}.public-page .case-count{display:block;margin-top:12px}}
 @media(prefers-reduced-motion:reduce){.public-page .case-filter{transition:none}.public-page .case-filter:hover{transform:none}}
+
+.public-page .case-page-link{display:inline-flex;margin:12px 24px 0;color:#777;font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;transition:color .25s ease,transform .25s ease}.public-page .case-page-link:hover{color:#F2F2EE;transform:translateX(3px)}
+@media(prefers-reduced-motion:reduce){.public-page .case-page-link{transition:none}}
