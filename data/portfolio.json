@@ -546,5 +546,71 @@
         "label": "Poster application"
       }
     ]
+  },
+  {
+    "id": "khem",
+    "name": "KHEM",
+    "category": "Projetos Especiais",
+    "type": "Identidade / worldbuilding visual",
+    "description": "Concept case inspirado pela ficção científica de desertos, escassez e adaptação: uma identidade construída a partir de território, ritual, recursos e sobrevivência coletiva.",
+    "accent": "orange",
+    "featured": false,
+    "priority": 17,
+    "tags": [
+      "Worldbuilding",
+      "Identidade",
+      "Ecologia"
+    ],
+    "materials": [
+      {
+        "file": "khem.svg",
+        "label": "Primary identity / key visual"
+      },
+      {
+        "file": "khem-landscape.svg",
+        "label": "Territory / landscape system"
+      },
+      {
+        "file": "khem-poster.svg",
+        "label": "Poster / campaign application"
+      },
+      {
+        "file": "khem-system.svg",
+        "label": "Identity system / applications"
+      }
+    ]
+  },
+  {
+    "id": "axioma",
+    "name": "AXIOMA",
+    "category": "Digital",
+    "type": "Inteligência / visualização de cenários",
+    "description": "Concept case inspirado pela ficção científica de civilizações, conhecimento e projeção de futuros: uma experiência visual para transformar sinais históricos em cenários compreensíveis.",
+    "accent": "violet",
+    "featured": false,
+    "priority": 18,
+    "tags": [
+      "Futuro",
+      "Dados",
+      "Estratégia"
+    ],
+    "materials": [
+      {
+        "file": "axioma.svg",
+        "label": "Primary visual / future system"
+      },
+      {
+        "file": "axioma-dashboard.svg",
+        "label": "Civilization model / dashboard"
+      },
+      {
+        "file": "axioma-archive.svg",
+        "label": "Knowledge archive / timeline"
+      },
+      {
+        "file": "axioma-flow.svg",
+        "label": "Scenario / decision flow"
+      }
+    ]
   }
 ]
