@@ -612,5 +612,71 @@
         "label": "Scenario / decision flow"
       }
     ]
+  },
+  {
+    "id": "helix",
+    "name": "HELIX",
+    "category": "Digital",
+    "type": "Inteligência artificial / sistema cognitivo",
+    "description": "Concept case sobre inteligência artificial, memória e emergência de padrões em sistemas adaptativos.",
+    "accent": "cyan",
+    "featured": false,
+    "priority": 19,
+    "tags": [
+      "AI",
+      "Worldbuilding",
+      "Futuro"
+    ],
+    "materials": [
+      {
+        "file": "helix.svg",
+        "label": "Primary AI system / key visual"
+      },
+      {
+        "file": "helix.svg",
+        "label": "Cognitive field / interface"
+      },
+      {
+        "file": "helix.svg",
+        "label": "Emergent network"
+      },
+      {
+        "file": "helix.svg",
+        "label": "Mobile intelligence"
+      }
+    ]
+  },
+  {
+    "id": "orbitum",
+    "name": "ORBITUM",
+    "category": "Projetos Especiais",
+    "type": "Exploração espacial / missão visual",
+    "description": "Concept case de exploração espacial que transforma navegação, sinal e missão em um sistema visual de futuro.",
+    "accent": "violet",
+    "featured": false,
+    "priority": 20,
+    "tags": [
+      "Espaço",
+      "Exploração",
+      "Futuro"
+    ],
+    "materials": [
+      {
+        "file": "orbitum.svg",
+        "label": "Primary mission / key visual"
+      },
+      {
+        "file": "orbitum.svg",
+        "label": "Navigation map"
+      },
+      {
+        "file": "orbitum.svg",
+        "label": "Mission control"
+      },
+      {
+        "file": "orbitum.svg",
+        "label": "Mobile mission view"
+      }
+    ]
   }
 ]
