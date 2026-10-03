@@ -60,3 +60,14 @@ html{scroll-behavior:smooth}
 .public-page .case-accent-line.art-violet{background:#8B5CF6}.public-page .case-accent-line.art-cyan,.public-page .case-accent-line.art-blue{background:#22D3EE}.public-page .case-accent-line.art-acid,.public-page .case-accent-line.art-green{background:#D9FF00}.public-page .case-accent-line.art-orange{background:#FF7A00}.public-page .case-accent-line.art-pink{background:#F43F8E}.public-page .case-accent-line.art-dark{background:#F2F2EE}
 @media(max-width:800px){.public-page .case-accent-line{margin-top:14px}.public-page .case-art .case-index{left:12px;top:12px}}
 @media(prefers-reduced-motion:reduce){.public-page .case-accent-line{transform:none;transition:none}}
+
+/* Filter navigation refinement */
+.public-page .case-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.public-page .case-filters{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.public-page .case-filter{display:inline-flex;align-items:center;gap:8px;padding:9px 11px;border:1px solid rgba(242,239,232,.12);background:rgba(255,255,255,.025);color:#8f8b84;font:500 .62rem 'Space Grotesk';letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:color .25s,border-color .25s,background .25s,transform .25s}
+.public-page .case-filter b{font-size:.5rem;font-weight:600;color:#666;letter-spacing:.04em}
+.public-page .case-filter:hover{color:#F2F2EE;border-color:rgba(217,255,0,.3);transform:translateY(-1px)}
+.public-page .case-filter.active{color:#050505;background:#D9FF00;border-color:#D9FF00}.public-page .case-filter.active b{color:#050505}
+.public-page .case-count{font:600 .58rem 'Space Grotesk';letter-spacing:.16em;color:#666;white-space:nowrap}
+@media(max-width:800px){.public-page .case-toolbar{display:block}.public-page .case-filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:5px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.public-page .case-filters::-webkit-scrollbar{display:none}.public-page .case-filter{flex:0 0 auto}.public-page .case-count{display:block;margin-top:12px}}
+@media(prefers-reduced-motion:reduce){.public-page .case-filter{transition:none}.public-page .case-filter:hover{transform:none}}
