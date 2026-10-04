@@ -1,0 +1,9 @@
+.badges-panel { margin-top: 18px; padding: 20px; background: #fff; border: 1px solid #e0e6ef; border-radius: 20px; }
+.badge-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.badge-card { display: flex; gap: 12px; align-items: center; min-height: 82px; padding: 14px; border-radius: 14px; background: #f2f4f7; opacity: .55; filter: grayscale(1); }
+.badge-unlocked { opacity: 1; filter: none; background: #f6f8fb; }
+.badge-icon { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; background: #e1e6ee; font-size: 1.35rem; }
+.badge-unlocked .badge-icon { background: #fff; }
+.badge-card strong { display: block; }
+.badge-card p { margin: 4px 0 0; color: #697386; font-size: .8rem; line-height: 1.35; }
+@media (max-width: 720px) { .badge-grid { grid-template-columns: 1fr; } }
