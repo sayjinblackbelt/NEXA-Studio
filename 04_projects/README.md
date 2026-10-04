@@ -18,6 +18,19 @@
     └── 08_case/
 ```
 
+## Projeto anexado — Desafio do Dia
+
+`desafio-do-dia/` preserva o sistema visual e a referência de interface do projeto educacional gamificado **Desafio do Dia**, incluindo HTML, CSS principal, estilos complementares, metas e conquistas.
+
+- [README do projeto](desafio-do-dia/README.md)
+- [Referência visual](desafio-do-dia/index.html)
+- [CSS principal](desafio-do-dia/style.css)
+- [CSS — desafio diário e histórico](desafio-do-dia/enhancements.css)
+- [CSS — metas](desafio-do-dia/goals.css)
+- [CSS — conquistas](desafio-do-dia/badges.css)
+
+**Classificação:** projeto educacional / experimental · não comercial.
+
 ## Status
 
 `BACKLOG` → `BRIEFING` → `STRATEGY` → `CONCEPT` → `PRODUCTION` → `REVIEW` → `APPROVAL` → `DELIVERY` → `CASE` → `COMPLETED` → `ARCHIVED`
