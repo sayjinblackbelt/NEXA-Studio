@@ -10,18 +10,9 @@ Os cinco aplicativos Python foram separados em um repositório independente para
 - [Portfólio público de desenvolvimento](../05_portfolio/development-projects.html)
 - [Índice dos projetos Python](https://github.com/sayjinblackbelt/Python-Projects#projects)
 
-## Projeto educacional — Desafio do Dia
+## Projeto arquivado — Desafio do Dia
 
-`desafio-do-dia/` permanece neste repositório. A pasta preserva o sistema visual e a referência de interface do projeto educacional gamificado **Desafio do Dia**, incluindo HTML, CSS principal, estilos complementares, metas e conquistas.
-
-- [README do projeto](desafio-do-dia/README.md)
-- [Referência visual](desafio-do-dia/index.html)
-- [CSS principal](desafio-do-dia/style.css)
-- [CSS — desafio diário e histórico](desafio-do-dia/enhancements.css)
-- [CSS — metas](desafio-do-dia/goals.css)
-- [CSS — conquistas](desafio-do-dia/badges.css)
-
-**Classificação:** projeto educacional / experimental · não comercial.
+O projeto **Desafio do Dia** foi retirado deste repositório e arquivado localmente para revisão futura. Ele não faz parte da estrutura publicada de projetos ativos. Seus arquivos foram preservados em uma cópia de segurança fora do repositório.
 
 ## Estrutura padrão de projetos NEXA Studio
 
