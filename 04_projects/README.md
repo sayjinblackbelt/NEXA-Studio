@@ -16,6 +16,18 @@ Aplicação web de controle financeiro pessoal com receitas, despesas, indicador
 **Tecnologias:** Python · Streamlit · Pandas · Pytest  
 **Status:** MVP inicial publicado no repositório.
 
+### TaskFlow Python — Python
+
+Gerenciador de tarefas com Streamlit e SQLite, incluindo criação, filtros, conclusão, exclusão e testes automatizados.
+
+- [README e instruções de execução](taskflow-python/README.md)
+- [Aplicação Streamlit](taskflow-python/app.py)
+- [Persistência e regras de tarefas](taskflow-python/task_store.py)
+- [Testes automatizados](taskflow-python/tests/test_task_store.py)
+
+**Tecnologias:** Python · Streamlit · SQLite · Pytest  
+**Status:** MVP inicial publicado no repositório.
+
 ## Projeto anexado — Desafio do Dia
 
 `desafio-do-dia/` preserva o sistema visual e a referência de interface do projeto educacional gamificado **Desafio do Dia**, incluindo HTML, CSS principal, estilos complementares, metas e conquistas.
