@@ -54,6 +54,18 @@ Ferramenta para explorar e limpar arquivos CSV com Pandas, incluindo análise de
 **Tecnologias:** Python · Pandas · Streamlit · Pytest  
 **Status:** MVP inicial publicado no repositório.
 
+### FileOrganizer — Python
+
+Organizador de arquivos por extensão, com prévia das movimentações, confirmação explícita, prevenção de sobrescrita e testes automatizados.
+
+- [README e instruções de execução](fileorganizer/README.md)
+- [Aplicação Streamlit](fileorganizer/app.py)
+- [Lógica de classificação e movimentação](fileorganizer/organizer.py)
+- [Testes automatizados](fileorganizer/tests/test_organizer.py)
+
+**Tecnologias:** Python · pathlib · shutil · Streamlit · Pytest  
+**Status:** MVP inicial publicado no repositório.
+
 ## Projeto anexado — Desafio do Dia
 
 `desafio-do-dia/` preserva o sistema visual e a referência de interface do projeto educacional gamificado **Desafio do Dia**, incluindo HTML, CSS principal, estilos complementares, metas e conquistas.
