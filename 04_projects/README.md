@@ -28,6 +28,19 @@ Gerenciador de tarefas com Streamlit e SQLite, incluindo criação, filtros, con
 **Tecnologias:** Python · Streamlit · SQLite · Pytest  
 **Status:** MVP inicial publicado no repositório.
 
+### QuizLab — Python
+
+Aplicação de quiz de múltipla escolha com perguntas em JSON, correção automática, explicações e testes automatizados.
+
+- [README e instruções de execução](quizlab/README.md)
+- [Aplicação Streamlit](quizlab/app.py)
+- [Motor de perguntas e pontuação](quizlab/quiz_engine.py)
+- [Banco de perguntas de demonstração](quizlab/data/questions.json)
+- [Testes automatizados](quizlab/tests/test_quiz_engine.py)
+
+**Tecnologias:** Python · Streamlit · JSON · Pytest  
+**Status:** MVP inicial publicado no repositório.
+
 ## Projeto anexado — Desafio do Dia
 
 `desafio-do-dia/` preserva o sistema visual e a referência de interface do projeto educacional gamificado **Desafio do Dia**, incluindo HTML, CSS principal, estilos complementares, metas e conquistas.
