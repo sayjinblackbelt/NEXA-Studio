@@ -14,7 +14,7 @@ Aplicação web de controle financeiro pessoal desenvolvida em Python. O projeto
 
 ## Tecnologias
 
-- Python 3.11 ou superior
+- Python 3.9 ou superior
 - Streamlit
 - Pandas
 - Pytest
