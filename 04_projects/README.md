@@ -54,6 +54,15 @@ Ferramenta para explorar e limpar arquivos CSV com Pandas, incluindo análise de
 **Tecnologias:** Python · Pandas · Streamlit · Pytest  
 **Status:** MVP inicial publicado no repositório.
 
+### Portfólio público de desenvolvimento
+
+Página estática com os cinco projetos Python, resumo de cada MVP e links para código e instruções de execução.
+
+- [Abrir página de portfólio (GitHub Pages)](../05_portfolio/development-projects.html)
+- [Índice técnico dos cinco projetos](PORTFOLIO.md)
+
+**Status:** Conteúdo do portfólio publicado no repositório; deploy via GitHub Actions configurado.
+
 ### FileOrganizer — Python
 
 Organizador de arquivos por extensão, com prévia das movimentações, confirmação explícita, prevenção de sobrescrita e testes automatizados.
