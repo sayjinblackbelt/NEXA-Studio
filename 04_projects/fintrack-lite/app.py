@@ -74,7 +74,7 @@ with tab_dashboard:
                 st.bar_chart(expenses.set_index("category")["amount"])
         with right:
             st.subheader("Evolução mensal")
-            monthly = monthly_summary(view)
+            monthly = monthly_summary(transactions)
             if monthly.empty:
                 st.caption("Sem dados suficientes para montar o gráfico.")
             else:
