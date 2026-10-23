@@ -41,6 +41,19 @@ Aplicação de quiz de múltipla escolha com perguntas em JSON, correção autom
 **Tecnologias:** Python · Streamlit · JSON · Pytest  
 **Status:** MVP inicial publicado no repositório.
 
+### DataClean Mini — Python
+
+Ferramenta para explorar e limpar arquivos CSV com Pandas, incluindo análise de valores ausentes, padronização de colunas, remoção de espaços e duplicatas e exportação.
+
+- [README e instruções de execução](dataclean-mini/README.md)
+- [Aplicação Streamlit](dataclean-mini/app.py)
+- [Funções de limpeza de dados](dataclean-mini/cleaner.py)
+- [CSV fictício para demonstração](dataclean-mini/sample_dirty.csv)
+- [Testes automatizados](dataclean-mini/tests/test_cleaner.py)
+
+**Tecnologias:** Python · Pandas · Streamlit · Pytest  
+**Status:** MVP inicial publicado no repositório.
+
 ## Projeto anexado — Desafio do Dia
 
 `desafio-do-dia/` preserva o sistema visual e a referência de interface do projeto educacional gamificado **Desafio do Dia**, incluindo HTML, CSS principal, estilos complementares, metas e conquistas.
