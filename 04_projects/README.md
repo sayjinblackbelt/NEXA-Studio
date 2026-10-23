@@ -1,83 +1,18 @@
 # Projetos
 
-Área central de produção e documentação dos projetos da NEXA Studio e do portfólio de desenvolvimento.
+Esta pasta reúne projetos experimentais e materiais de referência ligados ao trabalho da NEXA Studio.
 
-## Projetos de desenvolvimento
+## Portfólio de desenvolvimento Python
 
-### FinTrack Lite — Python
+Os cinco aplicativos Python foram separados em um repositório independente para manter código, testes, dependências e documentação técnica organizados.
 
-Aplicação web de controle financeiro pessoal com receitas, despesas, indicadores, gráficos, importação/exportação CSV e testes automatizados.
+- [Abrir o repositório Python-Projects](https://github.com/sayjinblackbelt/Python-Projects)
+- [Portfólio público de desenvolvimento](../05_portfolio/development-projects.html)
+- [Índice dos projetos Python](https://github.com/sayjinblackbelt/Python-Projects#projects)
 
-- [README e instruções de execução](fintrack-lite/README.md)
-- [Aplicação Streamlit](fintrack-lite/app.py)
-- [Funções e regras de negócio](fintrack-lite/finance.py)
-- [Testes automatizados](fintrack-lite/tests/test_finance.py)
+## Projeto educacional — Desafio do Dia
 
-**Tecnologias:** Python · Streamlit · Pandas · Pytest  
-**Status:** MVP inicial publicado no repositório.
-
-### TaskFlow Python — Python
-
-Gerenciador de tarefas com Streamlit e SQLite, incluindo criação, filtros, conclusão, exclusão e testes automatizados.
-
-- [README e instruções de execução](taskflow-python/README.md)
-- [Aplicação Streamlit](taskflow-python/app.py)
-- [Persistência e regras de tarefas](taskflow-python/task_store.py)
-- [Testes automatizados](taskflow-python/tests/test_task_store.py)
-
-**Tecnologias:** Python · Streamlit · SQLite · Pytest  
-**Status:** MVP inicial publicado no repositório.
-
-### QuizLab — Python
-
-Aplicação de quiz de múltipla escolha com perguntas em JSON, correção automática, explicações e testes automatizados.
-
-- [README e instruções de execução](quizlab/README.md)
-- [Aplicação Streamlit](quizlab/app.py)
-- [Motor de perguntas e pontuação](quizlab/quiz_engine.py)
-- [Banco de perguntas de demonstração](quizlab/data/questions.json)
-- [Testes automatizados](quizlab/tests/test_quiz_engine.py)
-
-**Tecnologias:** Python · Streamlit · JSON · Pytest  
-**Status:** MVP inicial publicado no repositório.
-
-### DataClean Mini — Python
-
-Ferramenta para explorar e limpar arquivos CSV com Pandas, incluindo análise de valores ausentes, padronização de colunas, remoção de espaços e duplicatas e exportação.
-
-- [README e instruções de execução](dataclean-mini/README.md)
-- [Aplicação Streamlit](dataclean-mini/app.py)
-- [Funções de limpeza de dados](dataclean-mini/cleaner.py)
-- [CSV fictício para demonstração](dataclean-mini/sample_dirty.csv)
-- [Testes automatizados](dataclean-mini/tests/test_cleaner.py)
-
-**Tecnologias:** Python · Pandas · Streamlit · Pytest  
-**Status:** MVP inicial publicado no repositório.
-
-### Portfólio público de desenvolvimento
-
-Página estática com os cinco projetos Python, resumo de cada MVP e links para código e instruções de execução.
-
-- [Abrir página de portfólio (GitHub Pages)](../05_portfolio/development-projects.html)
-- [Índice técnico dos cinco projetos](PORTFOLIO.md)
-
-**Status:** Conteúdo do portfólio publicado no repositório; deploy via GitHub Actions configurado.
-
-### FileOrganizer — Python
-
-Organizador de arquivos por extensão, com prévia das movimentações, confirmação explícita, prevenção de sobrescrita e testes automatizados.
-
-- [README e instruções de execução](fileorganizer/README.md)
-- [Aplicação Streamlit](fileorganizer/app.py)
-- [Lógica de classificação e movimentação](fileorganizer/organizer.py)
-- [Testes automatizados](fileorganizer/tests/test_organizer.py)
-
-**Tecnologias:** Python · pathlib · shutil · Streamlit · Pytest  
-**Status:** MVP inicial publicado no repositório.
-
-## Projeto anexado — Desafio do Dia
-
-`desafio-do-dia/` preserva o sistema visual e a referência de interface do projeto educacional gamificado **Desafio do Dia**, incluindo HTML, CSS principal, estilos complementares, metas e conquistas.
+`desafio-do-dia/` permanece neste repositório. A pasta preserva o sistema visual e a referência de interface do projeto educacional gamificado **Desafio do Dia**, incluindo HTML, CSS principal, estilos complementares, metas e conquistas.
 
 - [README do projeto](desafio-do-dia/README.md)
 - [Referência visual](desafio-do-dia/index.html)
